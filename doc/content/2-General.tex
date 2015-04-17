@@ -2,13 +2,74 @@
 \label{ch:general}
 %Dieses einleitende \chapref{ch:general} gibt einen groben Überblick zum Thema Wireless. Es wird auf Modis, Paket Typen, Paket Adressen, Verschlüsselungstechniken (allgemein) und Angriffe eingegangen.
 
-\section{History}
+\section{Geschichte}
+Voraussetzung für das heutige weit verbreitete Bluetooth, schuf der Physiker Dr. Johan Ullman.
+Bereits 1989 präsentierte er seine erste Erfindung für ein kabelloses Headset.\footcite{Bluetooth_Wikipedia_2015-04-17}
+
+1994 wurden die Erfindungen von der Firma \textit{Ericsson Mobile}\footcite{Ericsson_2015-04-17} aufgenommen.
+Mit Hilfe von Intel, Nokia, IBM und Toshiba wurde im Jahr 1998, die neue Technologie durch die \gls{siglLabel}, veröffentlicht.
+\footcite{Bluetooth_Special_Interest_Group_Wikipedia_2015-04-17}\footcite{The_history_of_Bluetooth_Ericsson_History_2015-04-17}
+
+Die Bezeichnung der Technologie lautete während der Entwicklung \gls{mclLabel}, wurde aber auf Grund der Faszination eines Mitentwickler an Harald Bl{\aa}tand, (engl. \textit{Bluetooth}, \textit{Blauzahn}) König von Dänemark während des 10. Jahrhunderts.
+
+Im Jahr 2000 wurde das erste Headset mit Bluetooth geliefert.
 
 \section{Technische Spezifikationen}
 
+\subsection{Klassen}
+Bluetooth Geräte können abhängig ihrer Reichweite in folgende drei Klassen eingeteilt werden:
+\begin{itemize}
+	\item \textbf{Klasse 1:} Distanz bis zu 100\,m
+	\item \textbf{Klasse 2:} Distanz bis zu 10\,m
+	\item \textbf{Klasse 3:} Distanz bis zu 1\,m
+\end{itemize}
+
+
+\subsection{Übertragung}
+Die Übertragung des klassischen Bluetooth erfolgt auf den Frequenzen 2.4 bis 2.480\,GHz, welche in 79 Kanäle à 1\, MHz unterteilt werden.
+
+Es wird die Funktechnologie des \textit{frequency-hopping spread spectrum} verwendet.
+Dabei wird jedes Paket auf einem anderen Kanal versendet.
+Der Kanal wird 1600 pro Sekunde gewechselt.\footcite{Bluetooth_Wikipedia_2015-04-17}
+
+Durch das \textit{frequency-hopping} ergeben sich drei wesentliche Vorteile:\footcite{Frequency-hopping_spread_spectrum_-_Wikipedia_2015-04-17}
+\begin{itemize}
+	\item \textbf{Anzahl Verbindungen:} Die Übermittlung eines Pakets blockiert einen Kanal nur für kurze Zeit. Anschliessend kann der Kanal bereits für wieder für die nächste Übertragung verwendet werden. So steigt die Effizienz über der ganzen Bandbreite.
+	\item \textbf{Abhörsicherheit:} Da die Kanäle immer wechseln, wird das Abhören massiv erschwert, da dem Angreifer die Folge der verwendeten Kanäle nicht bekannt ist.
+	\item \textbf{Rauschen:} Durch die Wechsel wird das Rauschen unterdrückt.
+\end{itemize}
+
+
+\subsection{Versionen und Geschwindigkeiten}
+Die Version 1.0 wurde 1999 veröffentlicht, sie beinhaltete noch viele Fehler.
+
+Über die Jahren haben sich vier verschiedene Versionen herauskristallisiert:\footcite{Bluetooth_Wikipedia_2015-04-17}\footcite{Bluetooth_low_energy_Wikipedia_2015-04-17}\footcite{Our_History_Bluetooth_Technology_Website_2015-04-17}
+\begin{table}[H]
+% style
+\small\sffamily\renewcommand{\arraystretch}{1.4}
+% caption
+\captionabove{Bluetooth Geschwindigkeiten mit Versionen}
+\begin{tabular}{llrrl}
+\toprule
+	Version & Beizeichnung & Geschw. & effektive Geschw.  & Jahr\\
+\midrule
+	1.2 & \gls{brlLabel} & 1\,MBit/s & 0.7\,MBit/s & 2003 \\
+	2.0 & \gls{edrLabel} & 3\,MBit/s & 2.1\,MBit/s & 2004 \\
+	3.0 & \gls{hsLabel} & 24\,MBit/s & 2.1\,MBit/s & 2009\\
+	4.0 & \gls{hsLabel} & 24\,MBit/s & -  & 2010 \\
+	4.0 & \gls{leLabel} & 100\,kb/s &  - & 2010 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+% \footcite{How_Bluetooth_Creates_a_Connection_HowStuffWorks_2015-04-17}
+
+
 \section{Kommunikation}
+
+
 
 \section{Unterstützte Protokolle}
 
-\section{Versionen}
 
