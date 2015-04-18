@@ -16,30 +16,6 @@ Im Jahr 2000 wurde das erste Headset mit Bluetooth geliefert.
 
 \section{Technische Spezifikationen}
 
-\subsection{Klassen}
-Bluetooth Geräte können abhängig ihrer Reichweite in folgende drei Klassen eingeteilt werden:
-\begin{itemize}
-	\item \textbf{Klasse 1:} Distanz bis zu 100\,m
-	\item \textbf{Klasse 2:} Distanz bis zu 10\,m
-	\item \textbf{Klasse 3:} Distanz bis zu 1\,m
-\end{itemize}
-
-
-\subsection{Übertragung}
-Die Übertragung des klassischen Bluetooth erfolgt auf den Frequenzen 2.4 bis 2.480\,GHz, welche in 79 Kanäle à 1\, MHz unterteilt werden.
-
-Es wird die Funktechnologie des \textit{frequency-hopping spread spectrum} verwendet.
-Dabei wird jedes Paket auf einem anderen Kanal versendet.
-Der Kanal wird 1600 pro Sekunde gewechselt.\footcite{Bluetooth_Wikipedia_2015-04-17}
-
-Durch das \textit{frequency-hopping} ergeben sich drei wesentliche Vorteile:\footcite{Frequency-hopping_spread_spectrum_-_Wikipedia_2015-04-17}
-\begin{itemize}
-	\item \textbf{Anzahl Verbindungen:} Die Übermittlung eines Pakets blockiert einen Kanal nur für kurze Zeit. Anschliessend kann der Kanal bereits für wieder für die nächste Übertragung verwendet werden. So steigt die Effizienz über der ganzen Bandbreite.
-	\item \textbf{Abhörsicherheit:} Da die Kanäle immer wechseln, wird das Abhören massiv erschwert, da dem Angreifer die Folge der verwendeten Kanäle nicht bekannt ist.
-	\item \textbf{Rauschen:} Durch die Wechsel wird das Rauschen unterdrückt.
-\end{itemize}
-
-
 \subsection{Versionen und Geschwindigkeiten}
 Die Version 1.0 wurde 1999 veröffentlicht, sie beinhaltete noch viele Fehler.
 
@@ -61,15 +37,70 @@ Die Version 1.0 wurde 1999 veröffentlicht, sie beinhaltete noch viele Fehler.
 \bottomrule
 \end{tabular}
 \end{table}
-
-
 % \footcite{How_Bluetooth_Creates_a_Connection_HowStuffWorks_2015-04-17}
 
 
-\section{Kommunikation}
+\subsection{Klassen (Reichweite)}
+Bluetooth Geräte können abhängig ihrer Reichweite in folgende drei Klassen eingeteilt werden:
+\begin{itemize}
+	\item \textbf{Klasse 1:} Distanz bis zu 100\,m
+	\item \textbf{Klasse 2:} Distanz bis zu 10\,m
+	\item \textbf{Klasse 3:} Distanz bis zu 1\,m
+\end{itemize}
+Die meisten gewöhnlichen Geräte (wie Mobiltelefone, Computers, Headsets, etc.) fallen unter die Klasse 2.
 
+
+\subsection{Übertragung}
+Die Übertragung des klassischen Bluetooth erfolgt auf den Frequenzen 2.4 bis 2.480\,GHz, welche in 79 Kanäle à 1\, MHz unterteilt werden.
+Bei Bluetooth 4.0 halbiert sich die Anzahl Kanäle, da pro Kanal 2\, MHz zugeteilt sind.
+
+Es wird die Funktechnologie des \textit{frequency-hopping spread spectrum} verwendet.
+Dabei wird jedes Paket auf einem anderen Kanal versendet.
+Der Kanal wird 1600 pro Sekunde gewechselt.\footcite{Bluetooth_Wikipedia_2015-04-17}
+
+Durch das \textit{frequency-hopping} ergeben sich drei wesentliche Vorteile:\footcite{Frequency-hopping_spread_spectrum_-_Wikipedia_2015-04-17}
+\begin{itemize}
+	\item \textbf{Anzahl Verbindungen:} Die Übermittlung eines Pakets blockiert einen Kanal nur für kurze Zeit. Anschliessend kann der Kanal bereits für wieder für die nächste Übertragung verwendet werden. So steigt die Effizienz über der ganzen Bandbreite.
+	\item \textbf{Abhörsicherheit:} Da die Kanäle immer wechseln, wird das Abhören massiv erschwert, da dem Angreifer die Folge der verwendeten Kanäle nicht bekannt ist.
+	\item \textbf{Rauschen:} Durch die Wechsel wird das Rauschen unterdrückt.
+\end{itemize}
+
+
+\section{Kommunikation}
+Bluetooth ist ein Paket basiertes Protokoll, mit einem \textit{Master-Slave} Prinzip.
+
+Pro Netzwerk (\textit{Piconet}) kann ein Master mit bis zu sieben aktiven Slaves kommunizieren.
+Der Master definiert welcher Slave wann antworten darf (meist via Round-Robin).\todo{Round-Robin Glossary} 
+Nebst den aktiven können bis zu 255 Slaves im inaktiven Modus befinden, aus dem sie jederzeit in den aktiven gesetzt werden können.
+\footcite{Piconet_-_Wikipedia_2015-04-18}
+Folglich muss ein Slave immer aktiv zuhören, um seinen zugeteilten Sende-Slot nutzen zu können. Die Funktion des Masters ist weniger aufwändig, als die eines Slaves.
+
+Die Rollen von Master und Slave können getauscht werden.
+Dies geschieht zum Beispiel, wenn via Headset eine Verbindung zu einem Mobiltelefon aufgebaut wird.
+Zuerst übernimmt das Headset die Rolle des Master, übergibt die aber sobald als möglich dem Telefon.
+
+Der \textit{Master} definiert für all seine Slaves den \textit{Clock} ($312.5\,\mu s$).
+Jeweils zwei Clocks ergeben einen \textit{Slot}.
+Der Master beginnt eine Sendung immer auf einen geraden Slot.
+Für die Slaves stehen die ungeraden Slots als Start einer Sendung zur Verfügung.
+
+Ein Paket kann 1, 3 oder 5 Slots lang sein.
+
+Bluetooth definiert mehrere Piconets zu einem Scatternet, in welchem Geräte nebst dem Master noch die Rolle des Slaves in anderen Netzten übernehmen können.
+
+
+\section{Verbindungsaufbau}
+
+
+\subsection{Pairing}
+
+
+
+\section{Sicherheit}
 
 
 \section{Unterstützte Protokolle}
+
+\subsection{Error Correction}
 
 
