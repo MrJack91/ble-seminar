@@ -76,7 +76,7 @@ Die meisten gewöhnlichen Geräte (wie Mobiltelefone, Computers, Headsets, etc.)
 Bluetooth ist ein paketbasiertes Protokoll, mit einem \textit{Master-Slave} Prinzip.
 
 Pro Netzwerk (\textit{Piconet}) kann ein Master mit bis zu sieben aktiven Slaves kommunizieren.
-Der Master definiert welcher Slave wann antworten darf (meist via Round-Robin).\todo{Round-Robin Glossary} 
+Der Master definiert welcher Slave wann antworten darf (meist via \gls{glos:roundRobinLabel}).
 Folglich muss ein Slave immer aktiv zuhören, um seinen zugeteilten Sende-Slot nutzen zu können. Die Funktion des Masters ist weniger aufwändig, als die eines Slaves.
 Nebst den aktiven Slaves, können bis zu 255 Slaves in den \textit{PARK}-Modus (siehe \cref{subsec:energymode}) gesetzt werden, aus dem sie jederzeit reaktiviert werden können.
 \footcite{Piconet_-_Wikipedia_2015-04-18}
@@ -133,12 +133,6 @@ Ab Bluetooth 3.0 ist zusätzlich ein verbindungsloser Datenaustausch möglich.
 \section{Sicherheit}
 \todo{add intro security}
 
-\subsection{Sicherheitslevel}
-\todo{add security level}
-% device, service, no
-% http://de.wikipedia.org/wiki/Bluetooth
-\footcite{Bluetooth_de_Wikipedia_2015-04-18}
-
 \subsection{Pairing, Bonding}
 Viele Services benötigen nebst einem Verbindungsaufbau, ein erfolgreiches \textit{Bonding}, dass durch ein \textit{Pairing} (Koppelung) zustand kommt.
 Dabei wird initial die Identität der beiden Geräte verifiziert, so dass künftig Services genutzt werden können, ohne dass eine Benutzer Interaktion erforderlich ist.
@@ -154,22 +148,47 @@ Seit der Bluetooth Version 2.1 wird das \gls{sspLabel} standardmässig verwendet
 
 
 \subsection{Sicherheitsmodi}
-Im Bluetooth-Standard werden 3 Sicherheitsmodi definiert:
+Im Bluetooth-Standard werden vier Sicherheitsmodi definiert:\footcite{Security_Bluetooth_Development_Portal_2015-04-24}
 \begin{itemize}
-	\item \textbf{Non-Secure Mode:} In diesem Modus werden keine Sicherheitsvorsichtsmassnahmen unterstützt.
-	\item \textbf{Service-Secure Mode:} In diesem Modus erfolgt die Sicherheit auf dem \textit{Application Layer} des Services.
-	\item \textbf{Link-Secure Mode:} Dieser Modus unterstützt die Authentifizierung auf dem \textit{Link Layer} und gilt als den sichersten Modus.
+	\item \textbf{Mode 1: Non-Secure} In diesem Modus werden keine Sicherheitsvorsichtsmassnahmen unterstützt.
+	\item \textbf{Mode 2: Service-Secure} In diesem Modus erfolgt die Sicherheit auf dem \textit{Application Layer} des Services.
+	\item \textbf{Mode 3: Link-Secure} Dieser Modus unterstützt eine Authentifizierung auf dem \textit{Link Layer}.
+	\item \textbf{Mode 4: Link-Secure encrypted} Dieser Modus unterstützt ebenfalls die Authentifizierung auf dem \textit{Link Layer}, wobei hier der Schlüssel-Austausch explizit verschlüsselt erfolgen muss.
 \end{itemize}
 
 \subsection{Verschlüsselung}
-\todo{add someting}
+\todo{add something, you have to correct it}
+Der Paketinhalt kann via \gls{aesccmLabel} verschlüsselt werden. Dazu werden folgende fünf Werte benötigt:
+\footcite{LE_Security_Bluetooth_Development_Portal_2015-04-25}
+\footcite{Bluetooth_Communication_Hybrid_Encryption_2015-04-25}
+\footcite{BluetoothSecurity_Washington_2015-04-25}
 
+\begin{table}[H]
+	% style
+	\small\sffamily\renewcommand{\arraystretch}{1.4}
+	% caption
+	\captionabove{Verschlüsselungs-Werte}
+	\begin{tabular}{p{0.25\linewidth}lp{0.5\linewidth}}
+		\toprule
+		Parameter & Länge & Beschreibung \\
+		\midrule
+		BD\_ADDR & 48 Bit & Entspricht der eindeutigen Geräte-Adresse (definiert von \gls{ieeeLabel}). \\
+		\gls{pinLabel} & bis zu 128 Bit & \gls{pinLabel} der auf beiden Geräten übereinstimmen muss. Entweder hat ein Gerät einen fix hinterlegten \gls{pinLabel} oder er kann selbst definiert werden.\\
+		Private Authentication Key & 128 Bit  & Wird jeweils von zwei paired Geräte verwendet. Kann auch \textit{Link Key} genannt werden.\\
+		Private Encryption Key & 8 -- 128 Bit & Pro Übertragung (Session) wird ein Encryption Key aus dem Private Authentication Key abgeleitet. Die Länge wird durch die zwei Geräte festgelegt, wobei beide ein Minimum sowie ein Maximum definieren können. Falls sich keine Übereinstimmung ergibt, muss abhängig des Services entschieden werden, ob trotzdem eine Verbindung zu Stand kommen darf. \\
+		RAND & 128 Bit & Der RAND-Wert wechselt häufig und wird jeweils für die Key Generierung verwendet.\\
+		\bottomrule
+	\end{tabular}
+\end{table}
 
-\section{Unterstützte Protokolle}
-\todo{add someting}
+Mit Hilfe des \gls{pinLabel}'s, des RAND's und der BD\_ADDR, wird ein \textit{Initialization Key} berechnet.
+Für die Authentifizierung müssen beide Geräte eine zufällige Zahl des anderen korrekt berechnen können.
+Bei Erfolg, wird die BD\_ADDR vom \textit{Service Manager} des Gerätes als authentifiziert abgelegt. Bei Misserfolg, entstehen exponentielle Wartezeiten.
+
+Anschliessend wird ein gültiger Private Encryption Key für die effektive Verschlüsselung der Daten ausgemacht.
 
 \subsection{Error Correction}
-\todo{add someting}
+Abhängig des Packet Types werden die Daten mit einem \gls{crcLabel} kontrolliert.
 
 
 %http://en.wikipedia.org/wiki/Bluetooth#Setting_up_connections
