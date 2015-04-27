@@ -7,28 +7,30 @@
 
 \section{Definition}
 \gls{bleLabel} (auch \textit{Bluetooth Smart} genannt) ist eine optionale Erweiterung zum klassischen Bluetooth 4.0.
-Dabei wurde besonders Wert auf stromsparenden Betrieb und günstige Herstellung der Chips gelegt, wobei eine deutlich geringere Übertragungsrate in Kauf genommen werden muss.
+Dabei wurde besonders Wert auf einen stromsparenden Betrieb und eine günstige Herstellung der Chips gelegt, wobei eine deutlich geringere Übertragungsrate in Kauf genommen werden muss.
 
-Da die Spezifikation von \gls{bleLabel} lediglich auf Softwaredefinitionen beruht, können sämtliche Bluetooth Geräte via \textit{Firmware upgrade} mit \gls{bleLabel} ergänzt werden.
+Da die Spezifikation von \gls{bleLabel} lediglich auf Softwaredefinitionen beruht, können sämtliche Bluetooth Geräte mit einem \textit{Firmware Upgrade} die Unterstützung anbieten.
 
-Das Einsatzgebiet von \gls{bleLabel} richtet sich besonders an Geräte, die regelmässig über mehrere Jahre kleine Datenmengen übertragen müssen. Der Stromverbrauch ist so gering, dass ein Gerät mit einer gewöhnlichen Knopfzellenbatterie betrieben werden kann. Konkret kann eine Übertragungsrate von maximal 1\,MBit/s (resp. von 0.271\,MBit/s Nutzdaten) bei einem maximalen Stromverbrauch von 15\,mA erreicht werden. Werden keine Daten übermittelt, wird der \gls{bleLabel} Chip in einen Sleep-Modus versetzt, indem er nur noch $1\,\si{\micro A}$ benötigt.
+Das Einsatzgebiet von \gls{bleLabel} richtet sich besonders an Geräte, die regelmässig über längere Zeit (bis zu mehreren Jahren) kleine Datenmengen übertragen sollen.
+Der Stromverbrauch ist so gering, dass ein Gerät mit einer gewöhnlichen Knopfzellenbatterie betrieben werden kann. Konkret kann eine Übertragungsrate von maximal 1\,MBit/s (resp. von 0.271\,MBit/s Nutzdaten) bei einem maximalen Stromverbrauch von 15\,mA erreicht werden.
+Falls keine Daten übermittelt werden, wird der \gls{bleLabel} Chip in einen Sleep-Modus versetzt, indem er nur noch $1\,\si{\micro A}$ benötigt.
 
 \gls{bleLabel} kann in zwei verschiedenen Modi implementiert werden:\footcite{Bluetooth_Low_Energy_vs_Classic_Bluetooth_Medical_Electronics_Design_2015-04-27}
 \begin{itemize}
-	\item \textbf{Single-Modus:} Geräte im Single-Modus ("`Smart Devices"') unterstützen einzig \gls{bleLabel} und sind auf auf den geringen Stromverbrauch optimiert.
-	\item \textbf{Dual-Modus:} Geräte im Dual-Modus ("`Smart ready Devices"') unterstützen klassisches Bluetooth so wie \gls{bleLabel}. Dadurch das beide Technologien angeboten werden, verliert sich der Vorteil des geringen Stromverbrauches sowie auch der Kostenvorteil. Dieser Modus ist typisch für Computers und Smartphones.
+	\item \textbf{Single-Modus:} Geräte im Single-Modus ("`Smart Devices"') unterstützen einzig \gls{bleLabel} und sind auf einen geringen Stromverbrauch optimiert.
+	\item \textbf{Dual-Modus:} Geräte im Dual-Modus ("`Smart ready Devices"') unterstützen klassisches Bluetooth, wie auch \gls{bleLabel}. Dadurch das beide Technologien angeboten werden, verliert sich der Vorteil des geringen Stromverbrauches, wie auch der Kostenvorteil. Dieser Modus ist typisch für Computers und Smartphones.
 \end{itemize}
 
 
 \subsection{Geschichte}
 Nokia erkannte im Jahr 2001 das Bedürfnis einer stromsparenden und kabellosen Übertragungsmöglichkeit. Resultierend wurde 2004 \textit{Bluetooth Low End Extension} veröffentlicht.
-Zwei Jahre später und mit Hilfe anderen Firmen wurde 2006 das Produkt \textit{Wibree} präsentiert.
+Zwei Jahre später und mit Hilfe anderen Firmen, wurde 2006 das Produkt \textit{Wibree} präsentiert.
 Bereits 2007 wurde mit der \gls{sigLabel} eine Integration von Wibree in den Bluetooth Standard verhandelt, der 2010 in der Bluetooth Version 4.0 als \gls{bleLabel} implementiert wurde.
 
 Das \textit{iPhone 4s} unterstützte mit \textit{iOS 5} (Juni 2011) als erstes Smartphone \gls{bleLabel}.
 Darauf folgten \textit{Windows 8} (Mai 2012), \textit{Blackberry 10} (Januar 2013), \textit{Android 4.3} (Juli 2013) und schlussendlich auch \textit{Windows Phone 8.1} (April 2014).
 \footcite{Bluetooth_low_energy_Wikipedia_2015-04-17}
-
+\todo{Linux Support?, Apple?}
 
 %\subsection{Unterstützung}
 

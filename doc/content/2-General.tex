@@ -163,15 +163,15 @@ Seit der Bluetooth Version 2.1 wird das \gls{sspLabel} standardmässig verwendet
 \subsection{Sicherheitsmodi}
 Im Bluetooth-Standard werden vier Sicherheitsmodi definiert:\footcite{Security_Bluetooth_Development_Portal_2015-04-24}
 \begin{itemize}
-	\item \textbf{Mode 1: Non-Secure} In diesem Modus werden keine Sicherheitsvorsichtsmassnahmen unterstützt.
-	\item \textbf{Mode 2: Service-Secure} In diesem Modus erfolgt die Sicherheit auf dem \textit{Application Layer} des Services.
-	\item \textbf{Mode 3: Link-Secure} Dieser Modus unterstützt eine Authentifizierung auf dem \textit{Link Layer}.
-	\item \textbf{Mode 4: Link-Secure encrypted} Dieser Modus unterstützt ebenfalls die Authentifizierung auf dem \textit{Link Layer}, wobei hier der Schlüssel-Austausch explizit verschlüsselt erfolgen muss.
+	\item \textbf{Mode 1 - Non-Secure:} In diesem Modus werden keine Sicherheitsvorsichtsmassnahmen unterstützt.
+	\item \textbf{Mode 2 - Service-Secure:} In diesem Modus erfolgt die Sicherheit auf dem \textit{Application Layer} des Services.
+	\item \textbf{Mode 3 - Link-Secure:} Dieser Modus unterstützt eine Authentifizierung auf dem \textit{Link Layer}.
+	\item \textbf{Mode 4 - Link-Secure encrypted:} Dieser Modus unterstützt ebenfalls die Authentifizierung auf dem \textit{Link Layer}, wobei hier der Schlüssel-Austausch explizit verschlüsselt erfolgen muss.
 \end{itemize}
 
 \subsection{Verschlüsselung}
 \todo{add something, you have to correct it}
-Bei klassischem Bluetooth wird die Stromchiffre \textit{E0}\footcite{E0_cipher_Wikipedia_2015-04-27} verwendet.
+Beim klassischem Bluetooth wird die Stromchiffre \textit{E0} (128-Bit) verwendet.\footcite{E0_cipher_Wikipedia_2015-04-27}
 Dazu werden folgende fünf Werte benötigt:
 \footcite{LE_Security_Bluetooth_Development_Portal_2015-04-25}
 \footcite{Bluetooth_Communication_Hybrid_Encryption_2015-04-25}
@@ -186,22 +186,23 @@ Dazu werden folgende fünf Werte benötigt:
 		\toprule
 		Parameter & Länge & Beschreibung \\
 		\midrule
-		BD\_ADDR & 48 Bit & Entspricht der eindeutigen Geräte-Adresse (definiert von \gls{ieeeLabel}). \\
-		\gls{pinLabel} & bis zu 128 Bit & \gls{pinLabel} der auf beiden Geräten übereinstimmen muss. Entweder hat ein Gerät einen fix hinterlegten \gls{pinLabel} oder er kann selbst definiert werden.\\
-		Link Key & 128 Bit  & Wird jeweils von zwei paired Geräte verwendet. Kann auch \textit{Private Authentication Key} genannt werden.\\
-		Private Encryption Key & 8 -- 128 Bit & Pro Übertragung (Session) wird ein Encryption Key aus dem Private Authentication Key abgeleitet. Die Länge wird durch die zwei Geräte festgelegt, wobei beide ein Minimum sowie ein Maximum definieren können. Falls sich keine Übereinstimmung ergibt, muss abhängig des Services entschieden werden, ob trotzdem eine Verbindung zu Stand kommen darf. \\
-		RAND & 128 Bit & Der RAND-Wert wechselt häufig und wird jeweils für die Key Generierung verwendet.\\
+		BD\_ADDR & 48 Bit & Entspricht einer eindeutigen Geräte-Adresse, die durch das \gls{ieeeLabel} definiert wird.\\
+		\gls{pinLabel} & bis zu 128 Bit & \gls{pinLabel} der auf beiden Geräten übereinstimmen muss. Entweder hat eines der Geräten einen fix hinterlegten \gls{pinLabel} oder er kann selbst definiert werden.\\
+		Link Key & 128 Bit  & Wird jeweils von zwei paired Geräte verwendet und wird für die Authentifikation verwendet. Kann auch \textit{Private Authentication Key} genannt werden.\\
+		Private Encryption Key & 8 -- 128 Bit & Pro Übertragung (Session) wird ein Encryption Key aus dem Link Key abgeleitet. Die Länge wird durch die zwei Geräte festgelegt, wobei beide ein Minimum sowie ein Maximum definieren. Falls sich keine Übereinstimmung ergibt, muss abhängig des Services entschieden werden, ob trotzdem eine Verbindung zustand kommen darf. \\
+		RAND & 128 Bit & Der RAND-Wert wechselt häufig und wird für Key Generierungen verwendet.\\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
 Mit Hilfe des \gls{pinLabel}'s, des RAND's und der BD\_ADDR, wird ein \textit{Initialization Key} berechnet.
-Für die Authentifizierung müssen beide Geräte eine zufällige Zahl des anderen korrekt berechnen können.
-Bei Erfolg, wird die BD\_ADDR vom \textit{Service Manager} des Gerätes als authentifiziert abgelegt. Bei Misserfolg, entstehen exponentielle Wartezeiten.
+Für die Authentifizierung müssen beide Geräte eine zufällige Zahl des Anderen korrekt berechnen können.
+Bei Erfolg, wird die BD\_ADDR vom \textit{Service Manager} des Gerätes als authentifiziert abgelegt.
+Bei Misserfolg, erfolgt eine neuer Versuch, nachdem eine exponentielle steigende Wartezeiten abgelaufen ist.
 
 Anschliessend wird ein gültiger Link Key für die effektive Verschlüsselung der Daten ausgemacht.
 
-Bei \gls{bleLabel} erfolgt eine Verschlüsselung via \gls{aesccmLabel}.
+Bei \gls{bleLabel} erfolgt eine Verschlüsselung via \gls{aesccmLabel}, ebenfalls mit 128 Bit.
 
 \subsection{Error Correction}
 Die Daten werden entweder mit \gls{fecLabel}\footcite{Forward_error_correction_Wikipedia_2015-04-27} (beim klassischen Bluetooth) oder mit \gls{crcLabel}\footcite{Cyclic_redundancy_check_Wikipedia_2015-04-27} (bei \gls{bleLabel}) auf Übermittlungsfehler überprüft.
