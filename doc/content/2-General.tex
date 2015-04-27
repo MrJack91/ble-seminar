@@ -35,7 +35,7 @@ Die Version 1.0 wurde 1999 veröffentlicht, sie beinhaltete noch viele Fehler.
 	2.0 & \gls{edrLabel} & 3\,MBit/s & 2.1\,MBit/s & 2004 \\
 	3.0 & \gls{hsLabel} & 24\,MBit/s & 2.1\,MBit/s & 2009\\
 %	4.0 & \gls{hsLabel} & 24\,MBit/s & -  & 2010 \\
-	4.0 & \gls{leLabel} Erweiterung & 100\,kb/s &  - & 2010 \\
+	4.0 & \gls{leLabel} Erweiterung & 1\,MBit/s &  0.27\,MBit/s & 2010 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -59,6 +59,10 @@ Durch das \textit{frequency-hopping} ergeben sich drei wesentliche Vorteile:\foo
 	\item \textbf{Abhörsicherheit:} Durch das Wechseln der Kanäle, wird das Abhören massiv erschwert, da dem Angreifer die Folge der verwendeten Kanäle nicht bekannt ist.
 	\item \textbf{Rauschen:} Durch die Wechsel wird das Rauschen unterdrückt.
 \end{itemize}
+
+\begin{framed}
+	\textbf{Information:} Das \textit{frequency-hopping spread spectrum} wurde von Hedy Lamarr, einer österreich-amerikanischen Frau, während des zweiten Weltkrieges erfunden. Zudem war sie eine erfolgreiche Schauspielerin.\footcite{Hedy_Lamarr_Wikipedia_2015-04-27}
+\end{framed}
 
 
 \subsection{Klassen (Reichweite)}
@@ -129,6 +133,15 @@ Der durchschnittliche Verbindungsaufbau dauert 1.28\,s.\footcite{Bluetooth_de_Wi
 
 Ab Bluetooth 3.0 ist zusätzlich ein verbindungsloser Datenaustausch möglich.
 
+\section{Profile}
+\todo{add something, you have to correct it}
+Bluetooth definiert verschiedene \textit{Bluetooth Profile} um Daten zu übertragen.
+Für ein erfolgreicher Datenaustausch müssen jeweils alle Geräte das zu verwendende Profil unterstützen.
+
+Selbstsprechende Beispiel für häufig verwendete Profile sind: \gls{hspLabel}, \gls{gavdpLabel}, \gls{hdpLabel}.\footcite{List_of_Bluetooth_profiles_Wikipedia_2015-04-27}
+
+Eine vollständige Sammlung der standardisierten Profilen ist auf der Website zu Bluetooth verfügbar.\footcite{Profiles_Overview_Bluetooth_Development_Portal_2015-04-27}
+
 
 \section{Sicherheit}
 \todo{add intro security}
@@ -158,7 +171,8 @@ Im Bluetooth-Standard werden vier Sicherheitsmodi definiert:\footcite{Security_B
 
 \subsection{Verschlüsselung}
 \todo{add something, you have to correct it}
-Der Paketinhalt kann via \gls{aesccmLabel} verschlüsselt werden. Dazu werden folgende fünf Werte benötigt:
+Bei klassischem Bluetooth wird die Stromchiffre \textit{E0}\footcite{E0_cipher_Wikipedia_2015-04-27} verwendet.
+Dazu werden folgende fünf Werte benötigt:
 \footcite{LE_Security_Bluetooth_Development_Portal_2015-04-25}
 \footcite{Bluetooth_Communication_Hybrid_Encryption_2015-04-25}
 \footcite{BluetoothSecurity_Washington_2015-04-25}
@@ -174,7 +188,7 @@ Der Paketinhalt kann via \gls{aesccmLabel} verschlüsselt werden. Dazu werden fo
 		\midrule
 		BD\_ADDR & 48 Bit & Entspricht der eindeutigen Geräte-Adresse (definiert von \gls{ieeeLabel}). \\
 		\gls{pinLabel} & bis zu 128 Bit & \gls{pinLabel} der auf beiden Geräten übereinstimmen muss. Entweder hat ein Gerät einen fix hinterlegten \gls{pinLabel} oder er kann selbst definiert werden.\\
-		Private Authentication Key & 128 Bit  & Wird jeweils von zwei paired Geräte verwendet. Kann auch \textit{Link Key} genannt werden.\\
+		Link Key & 128 Bit  & Wird jeweils von zwei paired Geräte verwendet. Kann auch \textit{Private Authentication Key} genannt werden.\\
 		Private Encryption Key & 8 -- 128 Bit & Pro Übertragung (Session) wird ein Encryption Key aus dem Private Authentication Key abgeleitet. Die Länge wird durch die zwei Geräte festgelegt, wobei beide ein Minimum sowie ein Maximum definieren können. Falls sich keine Übereinstimmung ergibt, muss abhängig des Services entschieden werden, ob trotzdem eine Verbindung zu Stand kommen darf. \\
 		RAND & 128 Bit & Der RAND-Wert wechselt häufig und wird jeweils für die Key Generierung verwendet.\\
 		\bottomrule
@@ -185,19 +199,10 @@ Mit Hilfe des \gls{pinLabel}'s, des RAND's und der BD\_ADDR, wird ein \textit{In
 Für die Authentifizierung müssen beide Geräte eine zufällige Zahl des anderen korrekt berechnen können.
 Bei Erfolg, wird die BD\_ADDR vom \textit{Service Manager} des Gerätes als authentifiziert abgelegt. Bei Misserfolg, entstehen exponentielle Wartezeiten.
 
-Anschliessend wird ein gültiger Private Encryption Key für die effektive Verschlüsselung der Daten ausgemacht.
+Anschliessend wird ein gültiger Link Key für die effektive Verschlüsselung der Daten ausgemacht.
+
+Bei \gls{bleLabel} erfolgt eine Verschlüsselung via \gls{aesccmLabel}.
 
 \subsection{Error Correction}
-Abhängig des Packet Types werden die Daten mit einem \gls{crcLabel} kontrolliert.
-
-
-%http://en.wikipedia.org/wiki/Bluetooth#Setting_up_connections
-%http://de.wikipedia.org/wiki/Bluetooth#Verbindungsaufbau
-%http://en.wikipedia.org/wiki/Bluetooth_low_energy
-%http://electronics.howstuffworks.com/bluetooth1.htm
-%http://www.explainthatstuff.com/howbluetoothworks.html
-%http://www.medicalelectronicsdesign.com/article/bluetooth-low-energy-vs-classic-bluetooth-choose-best-wireless-technology-your-application
-%http://www.link-labs.com/bluetooth-vs-bluetooth-low-energy/
-%http://www.quora.com/Is-there-a-difference-between-Bluetooth-4-0-and-Bluetooth-Low-Energy-If-so-what
-
+Die Daten werden entweder mit \gls{fecLabel}\footcite{Forward_error_correction_Wikipedia_2015-04-27} (beim klassischen Bluetooth) oder mit \gls{crcLabel}\footcite{Cyclic_redundancy_check_Wikipedia_2015-04-27} (bei \gls{bleLabel}) auf Übermittlungsfehler überprüft.
 
