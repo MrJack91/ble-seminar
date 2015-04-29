@@ -18,7 +18,7 @@ Falls keine Daten übermittelt werden, wird der \gls{bleLabel} Chip in einen Sle
 \gls{bleLabel} kann in zwei verschiedenen Modi implementiert werden:\footcite{Bluetooth_Low_Energy_vs_Classic_Bluetooth_Medical_Electronics_Design_2015-04-27}
 \begin{itemize}
 	\item \textbf{Single-Modus:} Geräte im Single-Modus ("`Smart Devices"') unterstützen einzig \gls{bleLabel} und sind auf einen geringen Stromverbrauch optimiert.
-	\item \textbf{Dual-Modus:} Geräte im Dual-Modus ("`Smart ready Devices"') unterstützen klassisches Bluetooth, wie auch \gls{bleLabel}. Dadurch das beide Technologien angeboten werden, verliert sich der Vorteil des geringen Stromverbrauches, wie auch der Kostenvorteil. Dieser Modus ist typisch für Computers und Smartphones.
+	\item \textbf{Dual-Modus:} Geräte im Dual-Modus ("`Smart Ready Devices"') unterstützen klassisches Bluetooth, wie auch \gls{bleLabel}. Dadurch das beide Technologien angeboten werden, verliert sich der Vorteil des geringen Stromverbrauches, wie auch der Kostenvorteil. Dieser Modus ist typisch für Computers und Smartphones.
 \end{itemize}
 
 
@@ -28,15 +28,39 @@ Zwei Jahre später und mit Hilfe anderen Firmen, wurde 2006 das Produkt \textit{
 Bereits 2007 wurde mit der \gls{sigLabel} eine Integration von Wibree in den Bluetooth Standard verhandelt, der 2010 in der Bluetooth Version 4.0 als \gls{bleLabel} implementiert wurde.
 
 Das \textit{iPhone 4s} unterstützte mit \textit{iOS 5} (Juni 2011) als erstes Smartphone \gls{bleLabel}.
-Darauf folgten \textit{Windows 8} (Mai 2012), \textit{Blackberry 10} (Januar 2013), \textit{Android 4.3} (Juli 2013) und schlussendlich auch \textit{Windows Phone 8.1} (April 2014).
+Darauf folgten \textit{Linux 3.4} (Mai 2012), \textit{Windows 8} (Mai 2012), \textit{Blackberry 10} (Januar 2013), \textit{Android 4.3} (Juli 2013) und schlussendlich auch \textit{Windows Phone 8.1} (April 2014).
 \footcite{Bluetooth_low_energy_Wikipedia_2015-04-17}
-\todo{Linux Support?, Apple?}
-
-%\subsection{Unterstützung}
 
 
 \section{Unterschiede zu klassischem Bluetooth}
-\footcite{powerconsumption_comparison_2015-04-27}
+Die Unterschiede zwischen klassischem Bluetooth und \gls{bleLabel} sind sehr übersichtlich auf Wikipedia aufgelistet.\footcite{Bluetooth_low_energy_Wikipedia_2015-04-17}
+Zusätzlich sind verschiedene Arbeiten von effektiven Messungen verfügbar, wie z.B. von Texas Instruments. \footcite{powerconsumption_comparison_2015-04-27}
+
+Folgend eine verkürzte Liste mit den interessantesten Verschiedenheiten:
+\begin{table}[H]
+	% style
+	\small\sffamily\renewcommand{\arraystretch}{1.4}
+	% caption
+	\captionabove{Verschlüsselungs-Werte}
+	\begin{tabular}{p{0.25\linewidth}lp{0.5\linewidth}}
+		\toprule
+		Spezifikation & Klassisches Bluetooth & \gls{bleLabel}\\
+		\midrule
+		Theoretischer Datendurchsatz & 1 -- 3\,MBits/s & 1\,MBits/s\\
+		Effektiver Datendurchsatz (Appliaction) & 0.7 -- 2.1\,Mbit/s	& 0.27\,Mbit/s\\
+		Leistung & 1\,W & 0.01 -- 0.5\,W\\
+		Max. Stromverbrauch & 30\,mA & 15\,mA\\
+		Durchschnittlicher Stromverbrauch & \todo{add here this value} & 1 -- 15\,mA \\
+		Verbindungszeit & 100\,ms & 6\,ms\\
+		Übertragungszeit & 100\,ms & 3\,ms\\
+		Kosten & & \\
+		Audioübertragung & unterstützt & nicht möglich\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+\todo{Kosten hinzufügen}
+%http://www.argenox.com/bluetooth-low-energy-ble-v4-0-development/library/a-guide-to-selecting-a-bluetooth-chipset/
+% Stromverbrauch (sleep: 1µA; active 1-15mA)
 
 \section{Anwendungsfälle}
 
