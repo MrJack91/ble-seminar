@@ -34,6 +34,9 @@ Darauf folgten \textit{Linux 3.4} (Mai 2012), \textit{Windows 8} (Mai 2012), \te
 
 \section{Unterschiede zu klassischem Bluetooth}
 Die Unterschiede zwischen klassischem Bluetooth und \gls{bleLabel} sind sehr übersichtlich auf Wikipedia aufgelistet.\footcite{Bluetooth_low_energy_Wikipedia_2015-04-17}
+Die Informationen wurden mit folgenden konkreten technischen Spezifikationen zweier aktuellen Chips von Texas Instruments ergänzt:
+\textit{CC2564 Bluetooth and Dual-Mode Controller}\footcite{CC2564_DualMode_2015-05-08} und \textit{CC2541 SimpleLink Bluetooth Smart and Proprietary Wireless MCU}.\footcite{CC2541_BLE_2015-05-08}
+
 Zusätzlich sind verschiedene Arbeiten von effektiven Messungen verfügbar, wie z.B. von Texas Instruments. \footcite{powerconsumption_comparison_2015-04-27}
 
 Folgend eine verkürzte Liste mit den interessantesten Verschiedenheiten:
@@ -42,26 +45,57 @@ Folgend eine verkürzte Liste mit den interessantesten Verschiedenheiten:
 	\small\sffamily\renewcommand{\arraystretch}{1.4}
 	% caption
 	\captionabove{Verschlüsselungs-Werte}
-	\begin{tabular}{p{0.25\linewidth}lp{0.5\linewidth}}
+	\begin{tabular}{p{0.35\linewidth}lp{0.35\linewidth}}
 		\toprule
 		Spezifikation & Klassisches Bluetooth & \gls{bleLabel}\\
 		\midrule
-		Theoretischer Datendurchsatz & 1 -- 3\,MBits/s & 1\,MBits/s\\
+		Theoretischer Datendurchsatz & 1 -- 3\,MBits/s & 1\,MBits/s (auch mit 2\,MBits/s)\\
 		Effektiver Datendurchsatz (Appliaction) & 0.7 -- 2.1\,Mbit/s	& 0.27\,Mbit/s\\
-		Leistung & 1\,W & 0.01 -- 0.5\,W\\
-		Max. Stromverbrauch & 30\,mA & 15\,mA\\
-		Durchschnittlicher Stromverbrauch & \todo{add here this value} & 1 -- 15\,mA \\
-		Verbindungszeit & 100\,ms & 6\,ms\\
+%		Leistung & 1\,W & 0.01 -- 0.5\,W\\
+		
+		Stromverbrauch (Standby) & 1 -- 40\,$\si{\micro A}$ &  0.4 -- 1.0 \,$\si{\micro A}$ \\
+		Stromverbrauch (Empfangen) & 39 -- 62\,mA &  5.9 -- 17.9\,mA \\
+		
+%		Max. Stromverbrauch & 30\,mA & 15\,mA\\
+%		Durchschnittlicher Stromverbrauch & MISSING VALUE & 1 -- 15\,mA \\
+		Verbindungszeit & 100\,ms & 6\,ms (bereits nach 0.5\,ms möglich)\\
 		Übertragungszeit & 100\,ms & 3\,ms\\
-		Kosten & & \\
+		Kosten & ab 2.14\,\$ & ab 1.79\,\$ \\
 		Audioübertragung & unterstützt & nicht möglich\\
 		\bottomrule
 	\end{tabular}
 \end{table}
-\todo{Kosten hinzufügen}
 %http://www.argenox.com/bluetooth-low-energy-ble-v4-0-development/library/a-guide-to-selecting-a-bluetooth-chipset/
 % Stromverbrauch (sleep: 1µA; active 1-15mA)
 
+%\footcite{Bluetooth_Bluetooth_Low_Energy_Products_TIcom_2015-05-08}
+
+\section{Kommunikation}
+% The channel spacing of Bluetooth low energy is 2 MHz in contrast to BR’s 1 MHz, this has the effect of reducing demands on RF filtering.
+% Moving up a bit, Bluetooth low energy connections are essentially similar to BR’s so-called sniff sub-rating mode.
+% This provides Bluetooth low en- ergy with an energy-efficient way of maintaining connections while keeping the radio off as much as possible. Not immediately apparent from the Bluetooth specifications is the fact that the relaxed requirements allow IC vendors to do a lot of optimizations that are difficult or impossible to make with “classic” Bluetooth, lowering sleep and active currents and shortening switching times. These optimizations enable single-mode chips to be lower power, simpler and lower cost than dual-mode or classic chips.
+
+% The minimum supported period in Bluetooth low energy is 7.5 ms, the maximum is 16 seconds. The 16 second limit is related to a communications time-out; if longer times are needed, it is possible to drop the connection and then reconnect every time as needed.
+
+\subsection{Verbindungsaufbau}
+\label{subsec:bleConnectionSetup}
+Der Verbindungsaufbau von \gls{bleLabel} unterscheidet sich vom klassischen Bluetooth (siehe \cref{sec:connectionSetup}).
+
+Anstatt den 79 Channels, gibt es bei \gls{bleLabel} nur 37 Channels. Während beim klassisches Bluetooth die Clients auf 32 verschiedenen Channels gesucht werden, wird bei \gls{bleLabel} die Suche nur auf drei Channels durchgeführt.
+Dadurch dass nur ein Zehntel der Channels abgesucht werden, ergibt sich eine massive Zeitvorteil.\footcite{ti_whitepaper_2015-05-08}
+
+
+
+\subsection{Protokoll Architektur}
+% There are also differences at the profile layer. Bluetooth low energy profiles so far are all layered over GATT, using the GATT/ATT protocol to exchange data. In “classic” Bluetooth, profiles often define their own protocols. This is more flexible, but renders the implementation more complex and increases the amount of code that needs to run.
+
 \section{Anwendungsfälle}
+%So far, Bluetooth Smart has seen good adoption in the sports and fitness space. It also has great promise in medical and healthcare, in novel new use-cases such as proximity tags, beacons, computer peripherals and remote user interfaces. In recent months we have seen the rise of a new breed of “connected” devices based on Bluetooth Smart – including for home automation and smart metering, a raft of smart watches, proximity tags, activity monitoring and toothbrushes.
+
+%The Bluetooth market has changed dramatically in the past three to four years. The technology has come a long way from being the wireless headset technology to leading the charge to connect innovative fitness monitors, door locks, credit cards, sports equipment, automobiles, gas sensors, light bulbs and a host of other applications. 
+
+
+\footcite{ti_whitepaper_2015-05-08}
+
 
 

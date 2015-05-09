@@ -45,7 +45,7 @@ Die Version 1.0 wurde 1999 veröffentlicht, sie beinhaltete noch viele Fehler.
 
 \subsection{Physikalische Übertragung}
 Die Übertragung des klassischen Bluetooth erfolgt auf den Frequenzen 2.4 bis 2.480\,GHz, welche in 79 Kanäle à 1\, MHz unterteilt werden.
-Bei Bluetooth 4.0 halbiert sich die Anzahl Kanäle, da pro Kanal 2\, MHz zugeteilt sind.
+Bei \gls{bleLabel} stehen pro Kanal 2\, MHz zur Verfügung, was die Anzahl Kanäle auf 37 reduziert.
 
 Es wird die Funktechnologie des \textit{frequency-hopping spread spectrum} verwendet.
 Dabei wird jedes Paket auf einem anderen Kanal versendet.
@@ -95,7 +95,7 @@ Jeweils zwei Clocks ergeben einen \textit{Slot}.
 Der Master beginnt eine Sendung immer auf einen geraden Slot.
 Für die Slaves stehen die ungeraden Slots als Start einer Sendung zur Verfügung.
 
-Ein Paket kann 1, 3 oder 5 Slots lang sein.
+Ein Paket kann ein, drei oder fünf Slots lang sein.
 
 Bluetooth definiert mehrere Piconets zu einem \textit{Scatternet}, in dem Geräte nebst dem Master auch die Rolle des Slaves in anderen Netzen übernehmen können.
 
@@ -116,7 +116,8 @@ Da klassisches Bluetooth bereits seit Beginn eine stromsparende Nutzung anvisier
 \end{itemize}
 
 
-\section{Verbindungsaufbau}
+\subsection{Verbindungsaufbau}
+\label{sec:connectionSetup}
 Sobald sich ein Gerät im \textit{Discoverable Mode} befindet, sendet es folgende Daten auf Anfrage: \textit{Geräte Name}, \textit{Geräte Klasse}, \textit{Liste der unterstützten Services} und \textit{weitere technische Informationen}.
 
 Jedes Gerät kann die Informationen jedes anderen Gerätes im \textit{Discoverable Mode} jederzeit verlangen und direkt ein Verbindung aufbauen.
@@ -132,6 +133,8 @@ Falls keine Verbindung zustande kommt, wird der Suchprozess auf weiteren 16 Hop-
 Der durchschnittliche Verbindungsaufbau dauert 1.28\,s.\footcite{Bluetooth_de_Wikipedia_2015-04-18}
 
 Ab Bluetooth 3.0 ist zusätzlich ein verbindungsloser Datenaustausch möglich.
+
+Der Verbindungsaufbau für \gls{bleLabel} wird in \cref{bleConnectionSetup} erläutert.
 
 \section{Profile}
 \todo{add something, you have to correct it}
@@ -204,5 +207,5 @@ Anschliessend wird ein gültiger Link Key für die effektive Verschlüsselung de
 Bei \gls{bleLabel} erfolgt eine Verschlüsselung via \gls{aesccmLabel}, ebenfalls mit 128 Bit.
 
 \subsection{Error Correction}
-Die Daten werden entweder mit \gls{fecLabel}\footcite{Forward_error_correction_Wikipedia_2015-04-27} (beim klassischen Bluetooth) oder mit \gls{crcLabel}\footcite{Cyclic_redundancy_check_Wikipedia_2015-04-27} (bei \gls{bleLabel}) auf Übermittlungsfehler überprüft.
+Die Daten werden entweder beim klassischen Bluetooth mit \gls{fecLabel}\footcite{Forward_error_correction_Wikipedia_2015-04-27} oder bei bei \gls{bleLabel} mit \gls{crcLabel}\footcite{Cyclic_redundancy_check_Wikipedia_2015-04-27} auf Übermittlungsfehler überprüft.
 
