@@ -71,6 +71,13 @@ Folgend eine verkürzte Liste mit den interessantesten Verschiedenheiten:
 %\footcite{Bluetooth_Bluetooth_Low_Energy_Products_TIcom_2015-05-08}
 
 \section{Kommunikation}
+Um bei \gls{bleLabel} die Energie-Effizienz zu erhalten, wird der Chip so oft wie möglich in den Sleepmode gesetzt. Daten werden also nur über kurze Zeiten (stromintensiv) verschickt und empfangen, anschliessend wird in den Stromsparmodus gewechselt.
+Eine Sendung dauert zwischen 7.5\,ms und 16\,s.
+Sollen mehr Daten ausgetauscht werden, so kann die Verbindung über ein Reconnect verlängert werden.
+\footcite[][5]{ti_whitepaper_2015-05-08}
+
+% Dadurch, dass sich bei \gls{bleLabel} jeder Channel über 2 MHz erstreckt, reduziert sich ...
+
 % The channel spacing of Bluetooth low energy is 2 MHz in contrast to BR’s 1 MHz, this has the effect of reducing demands on RF filtering.
 % Moving up a bit, Bluetooth low energy connections are essentially similar to BR’s so-called sniff sub-rating mode.
 % This provides Bluetooth low en- ergy with an energy-efficient way of maintaining connections while keeping the radio off as much as possible. Not immediately apparent from the Bluetooth specifications is the fact that the relaxed requirements allow IC vendors to do a lot of optimizations that are difficult or impossible to make with “classic” Bluetooth, lowering sleep and active currents and shortening switching times. These optimizations enable single-mode chips to be lower power, simpler and lower cost than dual-mode or classic chips.
@@ -81,12 +88,21 @@ Folgend eine verkürzte Liste mit den interessantesten Verschiedenheiten:
 \label{subsec:bleConnectionSetup}
 Der Verbindungsaufbau von \gls{bleLabel} unterscheidet sich vom klassischen Bluetooth (siehe \cref{sec:connectionSetup}).
 
-Anstatt den 79 Channels, gibt es bei \gls{bleLabel} nur 37 Channels. Während beim klassisches Bluetooth die Clients auf 32 verschiedenen Channels gesucht werden, wird bei \gls{bleLabel} die Suche nur auf drei Channels durchgeführt.
-Dadurch dass nur ein Zehntel der Channels abgesucht werden, ergibt sich eine massive Zeitvorteil.\footcite{ti_whitepaper_2015-05-08}
+Anstatt den 79 Channels, gibt es bei \gls{bleLabel} nur 37 Channels. Während beim klassischen Bluetooth die Clients auf 32 verschiedenen Channels gesucht werden, wird bei \gls{bleLabel} die Suche nur auf drei Channels durchgeführt.
+Dadurch dass nur ein Zehntel der Channels abgesucht werden, ergibt sich eine massive Zeitvorteil.\footcite[][3]{ti_whitepaper_2015-05-08}
 
 
 
 \subsection{Protokoll Architektur}
+Ein wesentlicher Vorteil von \gls{bleLabel} besteht darin, dass alle Profile auf dem \gls{gattLabel} Protokoll basieren.
+Dies schränkt zwar die Flexibilität gegenüber dem klassischen Bluetooth ein, vereinfacht aber die Komplexität und reduziert die Profile Code Menge.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/ble/bluetooth_stack.png}
+	\caption[Bluetooth Stack: \gls{bleLabel} und klassisches Bluetooth]{Bluetooth Stack: \gls{bleLabel} und klassisches Bluetooth (Quelle: \cite[][4]{ti_whitepaper_2015-05-08})}
+%	\caption[The four-way handshake -- WPA]{\textit{The four-way handshake} -- \gls{wpaLabel} (Quelle: \cite[][151]{WrightCache201503})}
+\end{figure}
+
 % There are also differences at the profile layer. Bluetooth low energy profiles so far are all layered over GATT, using the GATT/ATT protocol to exchange data. In “classic” Bluetooth, profiles often define their own protocols. This is more flexible, but renders the implementation more complex and increases the amount of code that needs to run.
 
 \section{Anwendungsfälle}
@@ -95,7 +111,7 @@ Dadurch dass nur ein Zehntel der Channels abgesucht werden, ergibt sich eine mas
 %The Bluetooth market has changed dramatically in the past three to four years. The technology has come a long way from being the wireless headset technology to leading the charge to connect innovative fitness monitors, door locks, credit cards, sports equipment, automobiles, gas sensors, light bulbs and a host of other applications. 
 
 
-\footcite{ti_whitepaper_2015-05-08}
+%\footcite[][]{ti_whitepaper_2015-05-08}
 
 
 
