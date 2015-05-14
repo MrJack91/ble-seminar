@@ -11,8 +11,8 @@ Dabei wurde besonders Wert auf einen stromsparenden Betrieb und eine günstige H
 
 Da die Spezifikation von \gls{bleLabel} lediglich auf Softwaredefinitionen beruht, können sämtliche Bluetooth Geräte mit einem \textit{Firmware Upgrade} die Unterstützung anbieten.
 
-Das Einsatzgebiet von \gls{bleLabel} richtet sich besonders an Geräte, die regelmässig über längere Zeit (bis zu mehreren Jahren) kleine Datenmengen übertragen sollen.
-Der Stromverbrauch ist so gering, dass ein Gerät mit einer gewöhnlichen Knopfzellenbatterie betrieben werden kann. Konkret kann eine Übertragungsrate von maximal 1\,MBit/s (resp. von 0.271\,MBit/s Nutzdaten) bei einem maximalen Stromverbrauch von 15\,mA erreicht werden.
+Das Einsatzgebiet von \gls{bleLabel} richtet sich besonders an Geräte, die regelmässig kleine Datenmengen übertragen sollen.
+Der Stromverbrauch ist so gering, dass ein Gerät mit einer gewöhnlichen Knopfzellenbatterie mehrere Jahre betrieben werden kann. Konkret kann eine Übertragungsrate von maximal 1\,MBit/s (resp. von 0.271\,MBit/s Nutzdaten) bei einem maximalen Stromverbrauch von 15\,mA erreicht werden.
 Falls keine Daten übermittelt werden, wird der \gls{bleLabel} Chip in einen Sleep-Modus versetzt, indem er nur noch $1\,\si{\micro A}$ benötigt.
 
 \gls{bleLabel} kann in zwei verschiedenen Modi implementiert werden:\footcite{Bluetooth_Low_Energy_vs_Classic_Bluetooth_Medical_Electronics_Design_2015-04-27}
@@ -44,7 +44,7 @@ Folgend eine verkürzte Liste mit den interessantesten Verschiedenheiten:
 	% style
 	\small\sffamily\renewcommand{\arraystretch}{1.4}
 	% caption
-	\captionabove{Verschlüsselungs-Werte}
+	\captionabove{Vergleich: \gls{bleLabel} und klassisches Bluetooth}
 	\begin{tabular}{p{0.35\linewidth}lp{0.35\linewidth}}
 		\toprule
 		Spezifikation & Klassisches Bluetooth & \gls{bleLabel}\\
@@ -89,16 +89,15 @@ Sollen mehr Daten ausgetauscht werden, so kann die Verbindung über ein Reconnec
 Der Verbindungsaufbau von \gls{bleLabel} unterscheidet sich vom klassischen Bluetooth (siehe \cref{sec:connectionSetup}).
 
 Anstatt den 79 Channels, gibt es bei \gls{bleLabel} nur 37 Channels. Während beim klassischen Bluetooth die Clients auf 32 verschiedenen Channels gesucht werden, wird bei \gls{bleLabel} die Suche nur auf drei Channels durchgeführt.
-Dadurch dass nur ein Zehntel der Channels abgesucht werden, ergibt sich eine massive Zeitvorteil.\footcite[][3]{ti_whitepaper_2015-05-08}
-
+Dadurch dass nur ein Zehntel der Channels abgesucht wird, ergibt sich ein massiver Zeitvorteil was sich natürlich auch auf den Stromverbrauch auswirkt.\footcite[][3]{ti_whitepaper_2015-05-08}
 
 
 \subsection{Protokoll Architektur}
 Ein wesentlicher Vorteil von \gls{bleLabel} besteht darin, dass alle Profile auf dem \gls{gattLabel} Protokoll basieren.
-Dies schränkt zwar die Flexibilität gegenüber dem klassischen Bluetooth ein, vereinfacht aber die Komplexität und reduziert die Profile Code Menge.
+Dies schränkt zwar die Flexibilität gegenüber dem klassischen Bluetooth ein, vereinfacht aber die Komplexität und reduziert die Menge an Code um einzelne Profile zu unterstützen.
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{images/ble/bluetooth_stack.png}
+	\includegraphics[width=0.7\textwidth]{images/ble/bluetooth_stack.png}
 	\caption[Bluetooth Stack: \gls{bleLabel} und klassisches Bluetooth]{Bluetooth Stack: \gls{bleLabel} und klassisches Bluetooth (Quelle: \cite[][4]{ti_whitepaper_2015-05-08})}
 %	\caption[The four-way handshake -- WPA]{\textit{The four-way handshake} -- \gls{wpaLabel} (Quelle: \cite[][151]{WrightCache201503})}
 \end{figure}
@@ -106,12 +105,42 @@ Dies schränkt zwar die Flexibilität gegenüber dem klassischen Bluetooth ein, 
 % There are also differences at the profile layer. Bluetooth low energy profiles so far are all layered over GATT, using the GATT/ATT protocol to exchange data. In “classic” Bluetooth, profiles often define their own protocols. This is more flexible, but renders the implementation more complex and increases the amount of code that needs to run.
 
 \section{Anwendungsfälle}
+Mit \gls{bleLabel} wird der Markt für drahtlose Kommunikation stark erweitert.
+Besonders wegen dem geringen Stromverbrauch und dem günstigen Preis, können viele alltägliche Geräte mit \gls{bleLabel} ausgestattet werden.
+Die gleichzeitige stark wachsende Verbreitung von Smartphones die \gls{bleLabel} unterstützen, wecken zahlreiche neue interessante Datenaustäusche.
+
+Auf der Bluetooth Website ist eine ausführliche Liste mit \gls{bleLabel} Geräten verfügbar.\footcite{Bluetooth_Smart_Devices_List_Bluetooth_Technology_Website_2015-05-14}
+In folgenden Bereichen ist die Low Energy Variante bereits vertreten: Auto, Ortung im Verkauf, Unterhaltungstechnik, Gesundheit, Wellness, Mobiltelefone, Computer, Sport und modernen Haussteuerungen.
+
+Folgende \cref{tab:usecases} soll das breite Spektrum an Anwendungsfälle aufzeigen:
+\begin{table}[H]
+	% style
+	\small\sffamily\renewcommand{\arraystretch}{1.4}
+	% caption
+	\captionabove{\gls{bleLabel} Anwendungsfälle}
+	\label{tab:usecases}
+	\begin{tabular}{lp{0.3\linewidth}p{0.35\linewidth}}
+		\toprule
+		Kategorie & Geräte und Produkte & Anwendungsszenario (Beispiele)\\
+		\midrule
+		Auto & Schlüssel, Steuerung (Musik, GPS, etc.) & \textit{Find my car}-Systeme\\
+		Ortung & Beacons & Ortsbasiertes Marketing mit Gutscheine\\
+		Unterhaltungstechnik & Steuerung (TV, Musik, Bilder Wiedergabe) & Smartphonesteuerung für technische Gräte\\
+		Gesundheit & Herzfrequenz, Blutdruck, Atemüberwachung, Waage, Zahnbürste & Überwachung von Gesundheitsmerkmalen (verschlüsselt)\\
+		Computer, Mobiltelefone & Datenaustausch, Steuerung, Tastaturen & Überwachung und Steuerungen anderer Geräte\\
+		Sport & Auswertung & Messung von Bewegung\\
+		Haussteuerungen & Lampe, Garagentoor, Bewässerung, Smartwatch, Stylus,... & Technische Geräte starten bei Zugang eines Zimmer.\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+Nebst diesen genannten Geräte gibt es unzählige weitere Einsatzmöglichkeiten für \gls{bleLabel}.
+Viele der zukünftigen Geräte, werden einen kabellosen und standardisierten Datenaustausch für Steuer- und Analysezwecken nutzen können.
+\footcite[][3,5]{ti_whitepaper_2015-05-08}
+
 %So far, Bluetooth Smart has seen good adoption in the sports and fitness space. It also has great promise in medical and healthcare, in novel new use-cases such as proximity tags, beacons, computer peripherals and remote user interfaces. In recent months we have seen the rise of a new breed of “connected” devices based on Bluetooth Smart – including for home automation and smart metering, a raft of smart watches, proximity tags, activity monitoring and toothbrushes.
 
 %The Bluetooth market has changed dramatically in the past three to four years. The technology has come a long way from being the wireless headset technology to leading the charge to connect innovative fitness monitors, door locks, credit cards, sports equipment, automobiles, gas sensors, light bulbs and a host of other applications. 
-
-
-%\footcite[][]{ti_whitepaper_2015-05-08}
 
 
 
