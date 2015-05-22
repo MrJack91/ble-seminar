@@ -5,9 +5,13 @@ Folgendes Kapitel soll die Vor- und Nachteile von möglichen Alternativen zur Da
 \section{Kabel}
 Die simpelste und älteste Methode zur Kommunikation ist das Kabel.
 
-\textbf{Vorteile:} Alleine durch das Medium ist ein Kabel sicherer als z.B. Funk. Zudem kann die Verbindung verschlüsselt erfolgen, so dass bei langen, unübersichtbaren Verbindungen das Abhören massiv erschwert wird. Kabel sind meist sehr günstig, schnell, stromsparend und können Standardstecker verwenden (z.B. \gls{usbLabel}).
+\subsubsection{Vorteile}
+%\textbf{Vorteile:}
+Alleine durch das Medium ist ein Kabel sicherer als z.B. Funk. Zudem kann die Verbindung verschlüsselt erfolgen, so dass bei langen, unübersichtbaren Verbindungen das Abhören massiv erschwert wird. Kabel sind meist sehr günstig, schnell, stromsparend und können Standardstecker verwenden (z.B. \gls{usbLabel}).
 
-\textbf{Nachteile:} Die hauptsächlichen Nachteile eines Kabels liegen alle im Bereich Mobilität.
+\subsubsection{Nachteile}
+% \textbf{Nachteile:}
+Die hauptsächlichen Nachteile eines Kabels liegen alle im Bereich Mobilität.
 Zu verwendende Kabel müssen mitgetragen und eingesteckt werden.
 Oft erzwingen verschiedene Schnittstellen zudem noch zusätzliche Hardware (weitere Kabel und Adapters), um alle Anforderungen abzudecken.
 Für Präsentationen ausserorts, müssen oft mehrere Adapter zur Verfügung stehen, so dass sichergestellt werden kann, dass alles reibungslos funktioniert.
@@ -45,11 +49,13 @@ Die Reichweite ist oft auf einen Meter (\textit{Giga-IR} auf 10\,cm) beschränkt
 \textit{\gls{wlanLabel}} (\gls{ieeeLabel} 802.11) und \textit{Wi-Fi Direct} unterscheiden sich darin, dass bei einem gewöhnlichem \gls{wlanLabel} die ganze Kommunikation von einem \gls{apLabel} gesteuert wird, über den meist auch der ganze Datenfluss fliesst. Dies wirkt sich selbst unter optimalen Umständen negativ auf die Datenübertragungsgeschwindigkeit aus.
 Wi-Fi Direct erlaubt eine direkte Kommunikation ohne \gls{apLabel}.
 
-\textbf{Vorteile:}
+\subsubsection{Vorteile}
+%\textbf{Vorteile:}
 Grundsätzlich gilt das \gls{wlanLabel} als weit verbreitendes und als sehr schnelle Möglichkeit um Daten auszutauschen. Die Reichweite ist mit ca. 100\,m relativ weit, was eine angenehme und freie Nutzung ermöglicht.
 \gls{wlanLabel} ist sehr verbreitet und relativ günstig. (Gerade der Punkt bezüglich der Verbreitung gilt nicht für Wi-Fi Direct.)
 
-\textbf{Nachteile:}
+\subsubsection{Nachteile}
+% \textbf{Nachteile:}
 Viel Geschwindigkeit über Funk heisst auch hoher Stromverbrauch. Zudem ist Wi-Fi Direct noch nicht so lange bekannt, wie \gls{wlanLabel}.
 
 \subsubsection{Testergebnisse}
@@ -94,9 +100,29 @@ Beim Wi-Fi Direct hat sich die Geschwindigkeit sehr rasch auf den 46\,Mbit/s sta
 Dies reduziert die Wartezeit auf fast 8\,\%.
 
 \subsection{NFC}
-\gls{nfcLabel}
-%http://www.mobilepaymentstoday.com/blogs/ble-vs-nfc-the-future-of-mobile-consumer-engagement-now-infographic/
+\gls{nfcLabel} ist seit 2002 spezifiziert und wurde 2006 erstmalig in einem Smartphone eingebaut.
+Die Technologie erlaubt innerhalb von 10\,cm eine Datenübertragung von max. 424\,kbit/s. Je nach Anwendungsfall werden kann die Reichweite auf bis einen Meter erweitert werden, was allerdings eine 1.5\,m hohe Antenne benötigt (eine solche wird manchmal bei Warenhäuser verwendet).\footcite{Near_Field_Communication_Wikipedia_2015-05-22}
+
+Die Technologie kann vor allem für das bargeldlose Zahlen verwendet werden.
+Da die Übertragungsrate nicht so hoch ist, eignet sie sich nicht besonders für den Austausch von Dateien (Bilder, Dokumente, etc.).
+Zudem darf bei grösseren Übertragungen die Reichweite nicht verlassen werden, was die Handhabung nicht unbedingt bequem macht.
+Sofern kleine Datenmengen (vor allem textbasierte Daten) wie Kontakte, Links oder Einstellungen übertragen werden müssen, kann \gls{nfcLabel} genutzt werden. Allerdings ist eine Kommunikation zwischen verschiedenen Systemen oft nicht möglich, weil die Programmen keine einheitlichen Schnittstellen anbieten.
+
+\subsubsection{Vorteile}
+%\textbf{Vorteile:}
+Durch die stark beschränkte Reichweite, wird unerlaubter Zugriff praktisch verunmöglicht.
+Die Nutzung ist sehr einfach gehalten, es reicht der Kontakt um Daten auszutauschen ("`\textit{beamen}"').
+Die Technologie bietet sich für sicherheitsrelevante Übertragungen von kleinen Datenmengen an.
+Einzelne \gls{rfidLabel}'s, die eine Identifizierung ermöglichen, können sehr günstig erworben werden.
+
+\subsubsection{Nachteile}
+%\textbf{Nachteile:}
+\gls{nfcLabel} wurde als eigene Technologie zum existierenden Bluetooth und \gls{wlanLabel} entwickelt. Dabei wurde bewusst eine eigener Anwendungsbereich anvisiert. Also ist die tiefe Datenübertragungsrate und die kurze Reichweite mehr eine gewollte Funktion, als ein Nachteil.
+Hingegen handelt es sich bei \gls{nfcLabel} um eine zertifizierte Technologie.
+Gerade im Zusammenhang mit der raren Verbreitung, stellt diese Zertifizierung eine Hürde für das Angebot von dieser Technologie dar.
+
+% http://www.mobilepaymentstoday.com/blogs/ble-vs-nfc-the-future-of-mobile-consumer-engagement-now-infographic/
 
 
-\subsection{Bluetooth}
+% \subsection{Bluetooth}
 
