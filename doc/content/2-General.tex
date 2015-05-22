@@ -31,11 +31,11 @@ Die Version 1.0 wurde 1999 veröffentlicht, sie beinhaltete noch viele Fehler.
 \toprule
 	Version & Beizeichnung & Geschw. & effektive Geschw.  & Jahr\\
 \midrule
-	1.2 & \gls{brLabel} & 1\,MBit/s & 0.7\,MBit/s & 2003 \\
-	2.0 & \gls{edrLabel} & 3\,MBit/s & 2.1\,MBit/s & 2004 \\
-	3.0 & \gls{hsLabel} & 24\,MBit/s & 2.1\,MBit/s & 2009\\
-%	4.0 & \gls{hsLabel} & 24\,MBit/s & -  & 2010 \\
-	4.0 & \gls{leLabel} Erweiterung & 1\,MBit/s &  0.27\,MBit/s & 2010 \\
+	1.2 & \gls{brLabel} & 1\,Mbit/s & 0.7\,Mbit/s & 2003 \\
+	2.0 & \gls{edrLabel} & 3\,Mbit/s & 2.1\,Mbit/s & 2004 \\
+	3.0 & \gls{hsLabel} & 24\,Mbit/s & 2.1\,Mbit/s & 2009\\
+%	4.0 & \gls{hsLabel} & 24\,Mbit/s & -  & 2010 \\
+	4.0 & \gls{leLabel} Erweiterung & 1\,Mbit/s &  0.27\,Mbit/s & 2010 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -134,10 +134,9 @@ Der durchschnittliche Verbindungsaufbau dauert 1.28\,s.\footcite{Bluetooth_de_Wi
 
 Ab Bluetooth 3.0 ist zusätzlich ein verbindungsloser Datenaustausch möglich.
 
-Der Verbindungsaufbau für \gls{bleLabel} wird in \cref{bleConnectionSetup} erläutert.
+Der Verbindungsaufbau für \gls{bleLabel} wird in \cref{subsec:bleConnectionSetup} erläutert.
 
 \section{Profile}
-\todo{add something, you have to correct it}
 Bluetooth definiert verschiedene \textit{Bluetooth Profile} um Daten zu übertragen.
 Für einen erfolgreichen Datenaustausch müssen jeweils alle Geräte das zu verwendende Profil unterstützen.
 
@@ -147,7 +146,7 @@ Eine vollständige Sammlung der standardisierten Profilen ist auf der Website vo
 
 
 \section{Sicherheit}
-\todo{add intro security}
+In diesem Abschnitt wird auf verschiedene Sicherheitsmerkmale eingegangen.
 
 \subsection{Pairing, Bonding}
 Viele Services benötigen nebst einem Verbindungsaufbau, ein erfolgreiches \textit{Bonding}, dass durch ein \textit{Pairing} (Koppelung) zustand kommt.
@@ -208,4 +207,3 @@ Bei \gls{bleLabel} erfolgt eine Verschlüsselung via \gls{aesccmLabel}, ebenfall
 
 \subsection{Error Correction}
 Die Daten werden entweder beim klassischen Bluetooth mit \gls{fecLabel}\footcite{Forward_error_correction_Wikipedia_2015-04-27} oder bei bei \gls{bleLabel} mit \gls{crcLabel}\footcite{Cyclic_redundancy_check_Wikipedia_2015-04-27} auf Übermittlungsfehler überprüft.
-
