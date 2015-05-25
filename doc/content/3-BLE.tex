@@ -7,40 +7,40 @@
 
 \section{Definition}
 \gls{bleLabel} (auch \textit{Bluetooth Smart} genannt) ist eine optionale Erweiterung zum klassischen Bluetooth 4.0.
-Dabei wurde besonders Wert auf einen stromsparenden Betrieb und eine günstige Herstellung der Chips gelegt, wobei eine deutlich geringere Übertragungsrate in Kauf genommen wird.
+Dabei wird besonders Wert auf einen stromsparenden Betrieb und eine günstige Herstellung der Computer-Chips gelegt. Eine deutlich geringere Übertragungsrate wird dabei in Kauf genommen.
 
-Da die Spezifikation von \gls{bleLabel} lediglich auf Softwaredefinitionen beruht, können sämtliche Bluetooth-fähigen Geräte mit einem \textit{Firmware Upgrade} die \gls{bleLabel}-Erweiterung nachliefern, falls die noch nicht unterstützt wird.
+Da die Spezifikation von \gls{bleLabel} lediglich auf Softwaredefinitionen beruht, können sämtliche Bluetooth-fähigen Geräte mit einem \textit{Firmware Upgrade} die \gls{bleLabel}-Erweiterung nachliefern, falls diese noch nicht unterstützt wird.
 
-Das Einsatzgebiet von \gls{bleLabel} richtet sich besonders an Geräte, die regelmässig kleine Datenmengen übertragen sollen.
+\gls{bleLabel} wird besonders bei Geräten eingesetzt, die regelmässig kleine Datenmengen übertragen sollen.
 Der Stromverbrauch ist so gering, dass ein Gerät mit einer gewöhnlichen Knopfzellenbatterie mehrere Jahre betrieben werden kann. Konkret kann eine Übertragungsrate von maximal 1\,Mbit/s (resp. 0.271\,Mbit/s Nutzdaten) bei einem maximalen Stromverbrauch von 15\,mA erreicht werden.
-Wenn keine Daten übermittelt werden, wird der \gls{bleLabel} Chip in einen Sleep-Modus versetzt, indem er nur noch $1\,\si{\micro A}$ benötigt.
+Wenn keine Daten übermittelt werden, wird der \gls{bleLabel}-Chip in einen Sleep-Modus versetzt, indem er nur noch $1\,\si{\micro A}$ benötigt.
 
 \gls{bleLabel} kann in zwei verschiedenen Modi implementiert werden:\footcite{Bluetooth_Low_Energy_vs_Classic_Bluetooth_Medical_Electronics_Design_2015-04-27}
 \begin{itemize}
 	\item \textbf{Single-Modus:} Geräte im Single-Modus ("`Smart Devices"') unterstützen einzig \gls{bleLabel} und sind auf einen geringen Stromverbrauch optimiert.
-	\item \textbf{Dual-Modus:} Geräte im Dual-Modus ("`Smart Ready Devices"') unterstützen klassisches Bluetooth, wie auch \gls{bleLabel}. Dadurch das beide Technologien angeboten werden, verliert sich der Vorteil des geringen Stromverbrauches, wie auch der Kostenvorteil. Dieser Modus ist typisch für Computers und Smartphones.
+	\item \textbf{Dual-Modus:} Geräte im Dual-Modus ("`Smart Ready Devices"') unterstützen klassisches Bluetooth wie auch \gls{bleLabel}.
+	Dadurch, dass beide Technologien angeboten werden, geht der Vorteil des geringen Stromverbrauches und auch des Kostenvorteils verloren. Dieser Modus ist typisch für Computer und Smartphones.
 \end{itemize}
 
 
 \subsection{Geschichte}
-Nokia erkannte im Jahr 2001 das Bedürfnis einer stromsparenden und kabellosen Übertragungsmöglichkeit.
-Daraus resultierend wurde 2004 \textit{Bluetooth Low End Extension} veröffentlicht.
-Zwei Jahre später und mit Hilfe anderen Firmen, wurde 2006 das Produkt \textit{Wibree} präsentiert.
+Nokia erkannte im Jahr 2001 das Bedürfnis nach einer stromsparenden und kabellosen Übertragungsmöglichkeit.
+Daraus resultierend wurde 2004 die \textit{Bluetooth Low End Extension} veröffentlicht.
+Zwei Jahre später und mit Hilfe anderen Firmen, präsentierte Nokia 2006 das Produkt \textit{Wibree}.
 Bereits 2007 wurde mit der \gls{sigLabel} eine Integration von Wibree in den Bluetooth Standard verhandelt, der 2010 in der Bluetooth Version 4.0 als \gls{bleLabel} implementiert wurde.
 
-Das \textit{iPhone 4s} unterstützte mit \textit{iOS 5} (Juni 2011) als erstes Smartphone \gls{bleLabel}.
-Darauf folgten \textit{Linux 3.4} (Mai 2012), \textit{Windows 8} (Mai 2012), \textit{Blackberry 10} (Januar 2013), \textit{Android 4.3} (Juli 2013) und schlussendlich auch \textit{Windows Phone 8.1} (April 2014).
+Das \textit{iPhone 4s} unterstützt mit \textit{iOS 5} (Juni 2011) als erstes Smartphone \gls{bleLabel}.
+Darauf folgten \textit{Linux 3.4} (Mai 2012), \textit{Windows 8} (Mai 2012), \textit{Blackberry 10} (Januar 2013), \textit{Android 4.3} (Juli 2013) und schliesslich auch \textit{Windows Phone 8.1} (April 2014) mit der Bereitstellung von \gls{bleLabel}.
 \footcite{Bluetooth_low_energy_Wikipedia_2015-04-17}
 
 
-\section{Unterschiede zu klassischem Bluetooth}
-Die Unterschiede zwischen klassischem Bluetooth und \gls{bleLabel} sind sehr übersichtlich auf Wikipedia aufgelistet.\footcite{Bluetooth_low_energy_Wikipedia_2015-04-17}
-Die Informationen wurden mit folgenden konkreten technischen Spezifikationen zweier aktuellen Chips von Texas Instruments ergänzt:
-\textit{CC2564 Bluetooth and Dual-Mode Controller}\footcite{CC2564_DualMode_2015-05-08} und \textit{CC2541 SimpleLink Bluetooth Smart and Proprietary Wireless MCU}.\footcite{CC2541_BLE_2015-05-08}
+\section{Unterschiede zwischen BLE und klassischem Bluetooth}
+% Zusätzlich sind verschiedene Arbeiten von effektiven Messungen verfügbar, wie z.B. von Texas Instruments. \footcite{powerconsumption_comparison_2015-04-27}
 
-Zusätzlich sind verschiedene Arbeiten von effektiven Messungen verfügbar, wie z.B. von Texas Instruments. \footcite{powerconsumption_comparison_2015-04-27}
+Folgend wird eine Liste mit den interessantesten Verschiedenheiten aufgezeigt.
+Die Informationen wurden einerseits aus Wikipedia entnommen, andererseits mit zwei aktuellen Chips von Texas Instruments ergänzt
+(\textit{CC2564 Bluetooth and Dual-Mode Controller}\footcite{CC2564_DualMode_2015-05-08} und \textit{CC2541 SimpleLink Bluetooth Smart and Proprietary Wireless MCU}.\footcite{CC2541_BLE_2015-05-08}).
 
-Folgend eine verkürzte Liste mit den interessantesten Verschiedenheiten:
 \begin{table}[H]
 	% style
 	\small\sffamily\renewcommand{\arraystretch}{1.4}
@@ -51,7 +51,7 @@ Folgend eine verkürzte Liste mit den interessantesten Verschiedenheiten:
 		Spezifikation & Klassisches Bluetooth & \gls{bleLabel}\\
 		\midrule
 		Theoretischer Datendurchsatz & 1 -- 3\,MBits/s & 1\,MBits/s (auch mit 2\,MBits/s)\\
-		Effektiver Datendurchsatz (Appliaction) & 0.7 -- 2.1\,Mbit/s	& 0.27\,Mbit/s\\
+		Effektiver Datendurchsatz (Appliaction)  & 0.7 -- 2.1\,Mbit/s	& 0.27\,Mbit/s\\
 %		Leistung & 1\,W & 0.01 -- 0.5\,W\\
 		
 		Stromverbrauch (Standby) & 1 -- 40\,$\si{\micro A}$ &  0.4 -- 1.0 \,$\si{\micro A}$ \\
@@ -72,9 +72,9 @@ Folgend eine verkürzte Liste mit den interessantesten Verschiedenheiten:
 %\footcite{Bluetooth_Bluetooth_Low_Energy_Products_TIcom_2015-05-08}
 
 \section{Kommunikation}
-Um bei \gls{bleLabel} die Energie-Effizienz zu erhalten, wird der Chip so oft wie möglich in den Sleep-Modus gesetzt. Daten werden also nur über kurze Zeiten (stromintensiv) verschickt und empfangen, anschliessend wird in den stromsparenden (Sleep-Modus) gewechselt.
+Um bei \gls{bleLabel} die Energie-Effizienz zu erhalten, wird der Chip so oft wie möglich in den Sleep-Modus gesetzt. Daten werden also nur über kurze Zeiten (stromintensiv) verschickt und empfangen, anschliessend wird wieder in den stromsparenden (Sleep-Modus) zurück gewechselt.
 Eine Sendung dauert zwischen 7.5\,ms und 16\,s.
-Sollen mehr Daten ausgetauscht werden, so kann die Verbindung über ein Reconnect verlängert werden.
+Sollen mehr Daten ausgetauscht werden, kann die Verbindung über ein Reconnect verlängert werden.
 \footcite[][5]{ti_whitepaper_2015-05-08}
 
 % Dadurch, dass sich bei \gls{bleLabel} jeder Channel über 2 MHz erstreckt, reduziert sich ...
@@ -87,15 +87,15 @@ Sollen mehr Daten ausgetauscht werden, so kann die Verbindung über ein Reconnec
 
 \subsection{Verbindungsaufbau}
 \label{subsec:bleConnectionSetup}
-Der Verbindungsaufbau von \gls{bleLabel} unterscheidet sich vom klassischen Bluetooth (siehe \cref{sec:connectionSetup}).
+Der Verbindungsaufbau von \gls{bleLabel} unterscheidet sich vom klassischen Bluetooth (siehe \cref{sec:connectionSetup}) in verschiedenen Aspekten.
 
 Anstatt den 79 Channels, gibt es bei \gls{bleLabel} nur 37 Channels. Während beim klassischen Bluetooth die Clients auf 32 verschiedenen Channels gesucht werden, wird bei \gls{bleLabel} die Suche nur auf drei Channels durchgeführt.
-Dadurch, dass nur ein Zehntel der Channels abgesucht wird, ergibt sich ein massiver Zeitvorteil, was sich auch positiv auf den Stromverbrauch auswirkt.\footcite[][3]{ti_whitepaper_2015-05-08}
+Dadurch, dass nur ein Zehntel der Channels abgesucht wird, ergibt sich ein massiver Zeitvorteil, der sich auch positiv auf den Stromverbrauch auswirkt.\footcite[][3]{ti_whitepaper_2015-05-08}
 
 
 \subsection{Protokoll Architektur}
 Ein wesentlicher Vorteil von \gls{bleLabel} besteht darin, dass alle Profile auf dem \gls{gattLabel} Protokoll basieren.
-Dies schränkt zwar die Flexibilität gegenüber dem klassischen Bluetooth ein, vereinfacht aber die Komplexität und reduziert die Menge an Code um einzelne Profile zu unterstützen.
+Dies schränkt zwar die Flexibilität gegenüber dem klassischen Bluetooth ein, vereinfacht aber die Komplexität und reduziert die Menge an Code, um einzelne Profile zu unterstützen.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.7\textwidth]{images/ble/bluetooth_stack.png}
@@ -107,13 +107,13 @@ Dies schränkt zwar die Flexibilität gegenüber dem klassischen Bluetooth ein, 
 
 \section{Anwendungsfälle}
 Mit \gls{bleLabel} wird der Markt für drahtlose Kommunikation stark erweitert.
-Besonders wegen dem geringen Stromverbrauch und dem günstigen Preis, können viele alltägliche Geräte mit \gls{bleLabel} ausgestattet werden.
-Die gleichzeitige stark wachsende Verbreitung von Smartphones die \gls{bleLabel} unterstützen, wecken zahlreiche neue interessante Möglichkeiten Daten auszutauschen.
+Besonders wegen des geringen Stromverbrauchs und des günstigen Preises, können viele alltägliche Geräte mit \gls{bleLabel} ausgestattet werden.
+Die gleichzeitige stark wachsende Verbreitung von Smartphones, die \gls{bleLabel} unterstützen, bringen zahlreiche neue interessante Möglichkeiten Daten auszutauschen.
 
-Auf der Bluetooth Website ist eine ausführliche Liste mit \gls{bleLabel} Geräten verfügbar.\footcite{Bluetooth_Smart_Devices_List_Bluetooth_Technology_Website_2015-05-14}
+Auf der Bluetooth Website ist eine ausführliche Liste von \gls{bleLabel}-Geräten ersichtlich.\footcite{Bluetooth_Smart_Devices_List_Bluetooth_Technology_Website_2015-05-14}
 In folgenden Bereichen ist die Low Energy Variante bereits vertreten: Auto, Ortung im Verkauf, Unterhaltungstechnik, Gesundheit, Wellness, Mobiltelefone, Computer, Sport und modernen Haussteuerungen.
 
-Folgende \cref{tab:usecases} soll das breite Spektrum an Anwendungsfälle aufzeigen:
+Folgende \cref{tab:usecases} zeigt das breite Spektrum der Anwendungsfälle auf:
 \begin{table}[H]
 	% style
 	\small\sffamily\renewcommand{\arraystretch}{1.4}
@@ -135,7 +135,7 @@ Folgende \cref{tab:usecases} soll das breite Spektrum an Anwendungsfälle aufzei
 	\end{tabular}
 \end{table}
 
-Nebst diesen genannten Geräte gibt es unzählige weitere Einsatzmöglichkeiten für \gls{bleLabel}.
+Nebst diesen genannten Geräten gibt es unzählige weitere Einsatzmöglichkeiten für \gls{bleLabel}.
 Viele der zukünftigen Geräte, werden ebenfalls einen kabellosen, standardisierten, stromsparenden und günstigen Datenaustausch für Steuer- und Analysezwecken nutzen können.
 \footcite[][3,5]{ti_whitepaper_2015-05-08}
 
