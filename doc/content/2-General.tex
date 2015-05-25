@@ -1,28 +1,29 @@
 \chapter{Allgemein Bluetooth}
 \label{ch:general}
-%Dieses einleitende \chapref{ch:general} gibt einen groben Überblick zum Thema Wireless. Es wird auf Modis, Paket Typen, Paket Adressen, Verschlüsselungstechniken (allgemein) und Angriffe eingegangen.
 
 \section{Geschichte}
-Voraussetzung für das heutige weit verbreitete Bluetooth, schuf der Physiker Dr. Johan Ullman.
+Die Voraussetzung für das heutige weit verbreitete Bluetooth, schuf der Physiker Dr. Johan Ullman.
 Bereits 1989 präsentierte er seine erste Erfindung für ein kabelloses Headset.\footcite{Bluetooth_Wikipedia_2015-04-17}
 
 1994 wurden die Erfindungen von der Firma \textit{Ericsson Mobile}\footcite{Ericsson_2015-04-17} aufgenommen.
-Mit Hilfe von Intel, Nokia, IBM und Toshiba wurde im Jahr 1998, die neue Technologie durch die \gls{sigLabel}, veröffentlicht.
+Mit Hilfe von Intel, Nokia, IBM und Toshiba wurde im Jahr 1998 die neue Technologie von der \gls{sigLabel} veröffentlicht.
 \footcite{Bluetooth_Special_Interest_Group_Wikipedia_2015-04-17}\footcite{The_history_of_Bluetooth_Ericsson_History_2015-04-17}
 
 Die Bezeichnung der Technologie lautete während der Entwicklung \gls{mclLabel}.
-Ein Mitentwickler war jedoch von Harald Bl{\aa}tand, einem ehemaligen König von Dänemark des 10. Jahrhunderts, so begeistert, dass die Bezeichnung der Technologie nach des Königs Namen geändert wurde: Blauzahn bzw. Bluetooth.
+Ein Mitentwickler war jedoch von \textit{Harald Bl{\aa}tand}, einem ehemaligen König von Dänemark des 10. Jahrhunderts, so begeistert, dass die Bezeichnung der Technologie nach des Königs Namen geändert wurde: Blauzahn bzw. Bluetooth.
 
 Im Jahr 2000 wurde das erste Headset mit Bluetooth verkauft.
 
 \section{Technische Spezifikationen}
 \label{sec:general_specs}
-Im folgenden \secref{sec:general_specs} stammen mehrere Informationen aus Wikipedia.\footcite{Bluetooth_Wikipedia_2015-04-17}
+% Im folgenden \secref{sec:general_specs} stammen mehrere Informationen aus Wikipedia.\footcite{Bluetooth_Wikipedia_2015-04-17}
+% Im diesem \secref{sec:general_specs} folgen Informationen zu Versionen und Geschwindigkeiten (\subsecref{subsec:versions_speed}), Physikalische
 
 \subsection{Versionen und Geschwindigkeiten}
-Die Version 1.0 wurde 1999 veröffentlicht, sie beinhaltete noch viele Fehler.
+\label{subsec:versions_speed}
+Die Bluetooth-Version 1.0 wurde 1999 veröffentlicht, doch sie beinhaltete noch viele Fehler.
 
-Über die Jahren haben sich vier verschiedene Versionen herauskristallisiert:\footcite{Bluetooth_low_energy_Wikipedia_2015-04-17}\footcite{Our_History_Bluetooth_Technology_Website_2015-04-17}
+Über die Jahren haben sich vier Hauptversionen durchgesetzt:\footcite{Bluetooth_low_energy_Wikipedia_2015-04-17}\footcite{Our_History_Bluetooth_Technology_Website_2015-04-17}
 \begin{table}[H]
 % style
 \small\sffamily\renewcommand{\arraystretch}{1.4}
@@ -50,60 +51,61 @@ Bei \gls{bleLabel} stehen pro Kanal 2\, MHz zur Verfügung, was die Anzahl Kanä
 
 Es wird die Funktechnologie des \textit{frequency-hopping spread spectrum} verwendet.
 Dabei wird jedes Paket auf einem anderen Kanal versendet.
-Der Kanal wird 1\'600 pro Sekunde gewechselt.\footcite{Bluetooth_Wikipedia_2015-04-17}
+Der Kanal wird 1\'600 mal pro Sekunde gewechselt.\footcite{Bluetooth_Wikipedia_2015-04-17}
 
 Durch das \textit{frequency-hopping} ergeben sich drei wesentliche Vorteile:\footcite{Frequency-hopping_spread_spectrum_-_Wikipedia_2015-04-17}
 \begin{itemize}
-	\item \textbf{Anzahl Verbindungen:} Die Übermittlung eines Pakets blockiert einen Kanal nur für kurze Zeit.
+	\item \textbf{Anzahl der Verbindungen:} Die Übermittlung eines Pakets blockiert einen Kanal nur für kurze Zeit.
 		Anschliessend kann der Kanal bereits wieder für die nächste Übertragung verwendet werden.
 		So steigt die Effizienz über die ganze Bandbreite.
-	\item \textbf{Abhörsicherheit:} Durch das Wechseln der Kanäle, wird das Abhören massiv erschwert, da dem Angreifer die Folge der verwendeten Kanäle nicht bekannt ist.
+	\item \textbf{Abhörsicherheit:} Durch das Wechseln der Kanäle, wird das Abhören der Verbindung massiv erschwert, da dem Angreifer die Reihenfolge der verwendeten Kanäle nicht bekannt ist.
 	\item \textbf{Rauschen:} Durch die Wechsel wird das Rauschen unterdrückt.
 \end{itemize}
 
 \begin{framed}
-	\textbf{Information:} Das \textit{frequency-hopping spread spectrum} wurde von Hedy Lamarr, einer österreich-amerikanischen Frau, während des zweiten Weltkrieges erfunden. Zudem war sie eine erfolgreiche Schauspielerin.\footcite{Hedy_Lamarr_Wikipedia_2015-04-27}
+	\textbf{Information:} Das \textit{frequency-hopping spread spectrum} wurde von Hedy Lamarr, einer österreich-amerikanischen Frau, während des zweiten Weltkrieges erfunden. Sie war zudem eine erfolgreiche Schauspielerin.\footcite{Hedy_Lamarr_Wikipedia_2015-04-27}
 \end{framed}
 
 
 \subsection{Klassen (Reichweite)}
-Bluetooth Geräte können abhängig ihrer Reichweite in folgende drei Klassen eingeteilt werden:
+Bluetooth-fähige Geräte können abhängig ihrer Reichweite in folgende drei Klassen eingeteilt werden:
 \begin{itemize}
 	\item \textbf{Klasse 1:} Distanz bis zu 100\,m
 	\item \textbf{Klasse 2:} Distanz bis zu 10\,m
 	\item \textbf{Klasse 3:} Distanz bis zu 1\,m
 \end{itemize}
-Die meisten gewöhnlichen Geräte (wie Mobiltelefone, Computers, Headsets, etc.) entsprechen der \textit{Klasse 2}.
+Die meisten Geräte (wie Mobiltelefone, Computers, Headsets, etc.) entsprechen der \textit{Klasse 2}.
 
 
 
 \section{Kommunikation}
-Bluetooth ist ein paketbasiertes Protokoll, mit einem \textit{Master-Slave} Prinzip.
+Bluetooth ist ein paketbasiertes Protokoll mit einem \textit{Master-Slave} Prinzip. Dieses Prinzip wird nun kurz erläutert.
 
 Pro Netzwerk (\textit{Piconet}) kann ein Master mit bis zu sieben aktiven Slaves kommunizieren.
 Der Master definiert welcher Slave wann antworten darf (meist via \gls{glos:roundRobinLabel}).
-Folglich muss ein Slave immer aktiv zuhören, um seinen zugeteilten Sende-Slot nutzen zu können. Die Funktion des Masters ist weniger aufwändig, als die eines Slaves.
+Folglich muss ein Slave immer aktiv zuhören, um seinen zugeteilten Sende-Slot nutzen zu können. Die Funktion des Masters ist weniger aufwändig als die eines Slaves.
 Nebst den aktiven Slaves, können bis zu 255 Slaves in den \textit{PARK}-Modus (siehe \cref{subsec:energymode}) gesetzt werden, aus dem sie jederzeit reaktiviert werden können.
 \footcite{Piconet_-_Wikipedia_2015-04-18}
 
 
-Die Rollen (Master und Slave) können getauscht werden.
+Die Rollen (Master und Slave) können auch getauscht werden.
 Dies geschieht zum Beispiel, wenn via Headset eine Verbindung zu einem Mobiltelefon aufgebaut wird:
-zuerst übernimmt das Headset die Rolle des Masters, übergibt die aber sobald wie möglich dem Telefon.
+Zuerst übernimmt das Headset die Rolle des Masters, übergibt die aber sobald wie möglich dem Telefon.
 
-Der \textit{Master} definiert für all seine Slaves den \textit{Clock} ($312.5\,\mu s$).
+Der \textit{Master} definiert für alle seine Slaves den \gls{glos:clockLabel} ($312.5\,\mu s$).
 Jeweils zwei Clocks ergeben einen \textit{Slot}.
 Der Master beginnt eine Sendung immer auf einen geraden Slot.
 Für die Slaves stehen die ungeraden Slots als Start einer Sendung zur Verfügung.
 
 Ein Paket kann ein, drei oder fünf Slots lang sein.
 
-Bluetooth definiert mehrere Piconets zu einem \textit{Scatternet}, in dem Geräte nebst dem Master auch die Rolle des Slaves in anderen Netzen übernehmen können.
+Bluetooth definiert mehrere Piconets zu einem \textit{Scatternet}.
+Dabei kann ein Gerät, nebst maximal einer Master-Rolle, mehrere Slaves-Rollen in verschiedenen Piconets belegen.
 
 \subsection{Asynchron und synchrone Kommunikation}
 Die Kommunikation kann entweder \gls{scoLabel} oder \gls{aclLabel} erfolgen.
 \gls{scoLabel} wird für den Austausch von Sprachdateien (64\,kbit/s) verwendet, wobei bis zu drei duplex Verbindungen zur gleichen Zeit aktiv sein können.
-\gls{aclLabel} setzt ein speicherndes Verhalten der Endgeräte voraus (analog zum Internet). Die asynchrone Verbindung erlaubt eine \textit{symmetrische} (mit 2 x 433,9\,kbit/s) und eine \textit{asymmetrische} (mit 706,25 und 57,6\,kbit/s) verteilte Übertragungsgeschwindigkeit.
+\gls{aclLabel} setzt ein speicherndes Verhalten der Endgeräte voraus (analog zum Internet). Die asynchrone Verbindung erlaubt eine \textit{symmetrisch} (mit 2 x 433,9\,kbit/s) und eine \textit{asymmetrisch} (mit 706,25 und 57,6\,kbit/s) verteilte Übertragungsgeschwindigkeit.
 \footcite{Nahfunktechnik_in_Smartphones_FAQ_cio.de_2015-04-24}
 
 
@@ -111,19 +113,20 @@ Die Kommunikation kann entweder \gls{scoLabel} oder \gls{aclLabel} erfolgen.
 \label{subsec:energymode}
 Da klassisches Bluetooth bereits seit Beginn eine stromsparende Nutzung anvisiert, gibt es folgende drei Energiesparmodi:
 \begin{itemize}
-	\item \textbf{HOLD-Modus:} Hier kann vorläufig eine Abwesenheit mitgeteilt werden, während dem keine Daten Empfangen werden. So können während dieser Zeit bewusst andere Aufgaben erledigt werden.
-	\item \textbf{SNIFF-Modus:} Im SNIFF-Modus werden periodische Aktivitäten reduziert. Dieser Modus wird sehr oft eingesetzt um den Energieverbrauch zu senken.
+	\item \textbf{HOLD-Modus:} Hier kann vorläufig eine Abwesenheit mitgeteilt werden, während der keine Daten empfangen werden können. So können während dieser Zeit bewusst andere Aufgaben erledigt werden.
+	\item \textbf{SNIFF-Modus:} Im SNIFF-Modus werden periodische Aktivitäten reduziert, z.B. kann der Kanal nur noch alle 500\,ms abgehört werden.
+	Dieser Modus wird sehr oft eingesetzt, um den Energieverbrauch zu senken.
 	\item \textbf{PARK-Modus:} Das Gerät bleibt zwar synchronisiert, kann jedoch während diesem Modus nicht am Datenverkehr teilnehmen. Dieser Modus wird in der Praxis kaum verwendet.
 \end{itemize}
 
 
 \subsection{Verbindungsaufbau}
 \label{sec:connectionSetup}
-Sobald sich ein Gerät im \textit{Discoverable Mode} befindet, sendet es folgende Daten auf Anfrage: \textit{Geräte Name}, \textit{Geräte Klasse}, \textit{Liste der unterstützten Services} und \textit{weitere technische Informationen}.
+Sobald sich ein Gerät im \textit{Discoverable Mode} befindet, sendet es auf Anfrage folgende Daten: \textit{Name des Gerätes}, \textit{Klasse des Gerätes}, \textit{Liste der unterstützten Services} und \textit{weitere technische Informationen}.
 
-Jedes Gerät kann die Informationen jedes anderen Gerätes im \textit{Discoverable Mode} jederzeit verlangen und direkt ein Verbindung aufbauen.
+Jedes Bluetooth-fähige Gerät kann die Informationen eines anderen Gerätes im \textit{Discoverable Mode} verlangen und direkt eine Verbindung zu diesem aufbauen.
 
-Technisch wird jedes Gerät mit einer 48-Bit Adresse identifiziert. Der Benutzer sieht jedoch lediglich die nicht eindeutigen und selbst definierbare Bezeichnung. Viele Hersteller setzen diese Bezeichnung standardmässig auf die Modellbezeichnung, was dazu führt, dass oft mehrmals gleiche Bezeichnungen angezeigt werden.
+Konkret wird jedes Gerät mit einer 48-Bit Adresse identifiziert. Der Benutzer sieht jedoch lediglich die nicht eindeutigen und selbst definierbare Bezeichnung. Viele Hersteller setzen diese Bezeichnung standardmässig auf die Modellbezeichnung, was dazu führt, dass oft mehrmals gleiche Bezeichnungen angezeigt werden.
 
 Um nun eine Verbindung herzustellen, wird das gewünschte Gerät in den \textit{Scan-Modus} gesetzt.
 Dabei wird auf 32 Hop-Frequenzen, während 2.56\,s nach möglichen Slaves gesucht. Dazu werden sogenannte Inquiry-Messages (Erkundigungsnachrichten) verschickt.
@@ -133,7 +136,7 @@ Falls keine Verbindung zustande kommt, wird der Suchprozess auf weiteren 16 Hop-
 
 Der durchschnittliche Verbindungsaufbau dauert 1.28\,s.\footcite{Bluetooth_de_Wikipedia_2015-04-18}
 
-Ab Bluetooth 3.0 ist zusätzlich ein verbindungsloser Datenaustausch möglich.
+Ab Bluetooth 3.0 ist zusätzlich ein \gls{glos:connectionlessCommunicationLabel} möglich.
 
 Der Verbindungsaufbau für \gls{bleLabel} wird in \cref{subsec:bleConnectionSetup} erläutert.
 
@@ -141,7 +144,7 @@ Der Verbindungsaufbau für \gls{bleLabel} wird in \cref{subsec:bleConnectionSetu
 Bluetooth definiert verschiedene \textit{Bluetooth Profile} um Daten zu übertragen.
 Für einen erfolgreichen Datenaustausch müssen jeweils alle Geräte das zu verwendende Profil unterstützen.
 
-Selbstsprechende Beispiele für häufig verwendete Profile sind \gls{hspLabel}, \gls{gavdpLabel} und  \gls{hdpLabel}.\footcite{List_of_Bluetooth_profiles_Wikipedia_2015-04-27}
+Selbstsprechende Beispiele für häufig verwendete Profile sind \gls{hspLabel}, \gls{gavdpLabel} oder  \gls{hdpLabel}.\footcite{List_of_Bluetooth_profiles_Wikipedia_2015-04-27}
 
 Eine vollständige Sammlung der standardisierten Profilen ist auf der Website von Bluetooth vorhanden.\footcite{Profiles_Overview_Bluetooth_Development_Portal_2015-04-27}
 
@@ -150,16 +153,16 @@ Eine vollständige Sammlung der standardisierten Profilen ist auf der Website vo
 In diesem Abschnitt wird auf verschiedene Sicherheitsmerkmale eingegangen.
 
 \subsection{Pairing, Bonding}
-Viele Services benötigen nebst einem Verbindungsaufbau, ein erfolgreiches \textit{Bonding}, dass durch ein \textit{Pairing} (Koppelung) zustand kommt.
-Dabei wird initial die Identität der beiden Geräte verifiziert, so dass künftig Services genutzt werden können, ohne dass eine Benutzer Interaktion erforderlich ist.
+Viele Service benötigen, nebst einem Verbindungsaufbau, ein erfolgreiches \textit{Bonding}, das durch ein \textit{Pairing} (Koppelung) zustande kommt.
+Dabei wird initial die Identität der beiden Geräte verifiziert, sodass künftig Service genutzt werden können, ohne dass eine Benutzerinteraktion erforderlich ist.
 
 Seit der Bluetooth Version 2.1 wird das \gls{sspLabel} standardmässig verwendet. Es unterstützt folgende vier Modi:\footcite{Bluetooth_Wikipedia_2015-04-17}
 \begin{itemize}
 	\item \textbf{Just works:} Es wird keine Interaktion des Benutzers benötigt. Dies wird oft für Geräte ohne \gls{glos:ioLabel} Möglichkeiten eingesetzt, und bietet keinen Schutz gegen \gls{mitmLabel}-Angriffe.
-	\item \textbf{Numeric Comparison:} Auf den Displays beiden Geräten wird ein Zahl angezeigt, die übereinstimmen muss. So wird sichergestellt, dass kein \gls{mitmLabel}-Angriff vorliegt.
-	\item \textbf{Passkey Entry:} Hier muss mind. ein \gls{pinLabel} des einen Gerätes auf dem anderen eingegeben werden. Somit wird \gls{mitmLabel}-Angriff verunmöglicht.
+	\item \textbf{Numeric Comparison:} Auf den Displays beider Geräte wird eine Zahl angezeigt, die übereinstimmen muss. So wird sichergestellt, dass kein \gls{mitmLabel}-Angriff vorliegt.
+	\item \textbf{Passkey Entry:} Hier muss mindestens eine \gls{pinLabel} des einen Gerätes auf dem anderen eingegeben werden. Somit wird \gls{mitmLabel}-Angriff verunmöglicht.
 	\item \textbf{\gls{oobLabel}:} Diese Methode wird meistens über \gls{nfcLabel} realisiert.
-		\gls{oobLabel} schützt nicht per Definition vor \gls{mitmLabel}-Angriffen, aber erschwert sie erheblich. Der Angreifer muss ein weiteres Medium abhören können, was z.B. bei \gls{nfcLabel} nur in extrem kleinem Radius möglich ist.
+		\gls{oobLabel} schützt nicht per Definition vor \gls{mitmLabel}-Angriffen, aber erschwert diese erheblich. Der Angreifer muss ein weiteres Medium abhören können, was z.B. bei \gls{nfcLabel} nur in extrem kleinem Radius möglich ist.
 \end{itemize}
 
 
@@ -172,8 +175,9 @@ Im Bluetooth-Standard werden vier Sicherheitsmodi definiert:\footcite{Security_B
 	\item \textbf{Mode 4 - Link-Secure encrypted:} Dieser Modus unterstützt ebenfalls die Authentifizierung auf dem \textit{Link Layer}, wobei hier der Schlüssel-Austausch explizit verschlüsselt erfolgen muss.
 \end{itemize}
 
+\newpage
 \subsection{Verschlüsselung}
-Beim klassischem Bluetooth wird die Stromchiffre \textit{E0} (128-Bit) verwendet.\footcite{E0_cipher_Wikipedia_2015-04-27}
+Beim klassischen Bluetooth wird die Stromchiffre \textit{E0} (128-Bit) verwendet.\footcite{E0_cipher_Wikipedia_2015-04-27}
 Dazu werden folgende fünf Werte benötigt:
 \footcite{LE_Security_Bluetooth_Development_Portal_2015-04-25}
 \footcite{Bluetooth_Communication_Hybrid_Encryption_2015-04-25}
@@ -183,28 +187,29 @@ Dazu werden folgende fünf Werte benötigt:
 	% style
 	\small\sffamily\renewcommand{\arraystretch}{1.4}
 	% caption
-	\captionabove{Verschlüsselungs-Werte}
+	\captionabove{Verschlüsselungswerte}
 	\begin{tabular}{p{0.25\linewidth}lp{0.5\linewidth}}
 		\toprule
 		Parameter & Länge & Beschreibung \\
 		\midrule
 		BD\_ADDR & 48 Bit & Entspricht einer eindeutigen Geräte-Adresse, die durch das \gls{ieeeLabel} definiert wird.\\
-		\gls{pinLabel} & bis zu 128 Bit & \gls{pinLabel} der auf beiden Geräten übereinstimmen muss. Entweder hat eines der Geräten einen fix hinterlegten \gls{pinLabel} oder er kann selbst definiert werden.\\
-		Link Key & 128 Bit  & Wird jeweils von zwei paired Geräte verwendet und wird für die Authentifikation verwendet. Kann auch \textit{Private Authentication Key} genannt werden.\\
-		Private Encryption Key & 8 -- 128 Bit & Pro Übertragung (Session) wird ein Encryption Key aus dem Link Key abgeleitet. Die Länge wird durch die zwei Geräte festgelegt, wobei beide ein Minimum sowie ein Maximum definieren. Falls sich keine Übereinstimmung ergibt, muss abhängig des Services entschieden werden, ob trotzdem eine Verbindung zustand kommen darf. \\
+		\gls{pinLabel} & bis zu 128 Bit & \gls{pinLabel} der auf beiden Geräten übereinstimmen muss. Entweder hat eines der Geräte einen fix hinterlegten \gls{pinLabel} oder er kann selbst definiert werden.\\
+		Link Key & 128 Bit  & Wird jeweils von zwei paired Geräten und für die Authentifikation verwendet. Wird auch \textit{Private Authentication Key} genannt.\\
+		Private Encryption Key & 8 -- 128 Bit & Pro Übertragung (Session) wird ein Encryption Key aus dem Link Key abgeleitet. Die Länge wird durch die zwei Geräte festgelegt, wobei beide ein Minimum sowie ein Maximum definieren. Falls sich keine Übereinstimmung ergibt, muss abhängig des Services entschieden werden, ob trotzdem eine Verbindung zustande kommen darf. \\
 		RAND & 128 Bit & Der RAND-Wert wechselt häufig und wird für Key Generierungen verwendet.\\
 		\bottomrule
 	\end{tabular}
 \end{table}
 
-Mit Hilfe des \gls{pinLabel}'s, des RAND's und der BD\_ADDR, wird ein \textit{Initialization Key} berechnet.
-Für die Authentifizierung müssen beide Geräte eine zufällige Zahl des Anderen korrekt berechnen können.
-Bei Erfolg, wird die BD\_ADDR vom \textit{Service Manager} des Gerätes als authentifiziert abgelegt.
-Bei Misserfolg, erfolgt eine neuer Versuch, nachdem eine exponentielle steigende Wartezeiten abgelaufen ist.
+Mit Hilfe des \gls{pinLabel}'s, des RAND's und der BD\_ADDR wird ein \textit{Initialization Key} berechnet.
+Für die Authentifizierung müssen beide Geräte eine zufällige Zahl des anderen korrekt berechnen können.
+Bei Erfolg wird die BD\_ADDR vom \textit{Service Manager} des Gerätes als authentifiziert abgelegt.
+Bei Misserfolg erfolgt eine neuer Versuch, nachdem eine exponentielle steigende Wartezeiten abgelaufen ist.
 
-Anschliessend wird ein gültiger Link Key für die effektive Verschlüsselung der Daten ausgemacht.
+Bei einer bevorstehenden Datenübermittlung, wird geprüft ob der Kommunikationspartner bereits einmal authentifiziert wurde. Wenn nicht, wird die Authentifizierung durchgeführt.
+Falls bereits früher eine Authentifizierung stattgefunden hat, wird ein gültiger Link Key für die effektive Verschlüsselung der Daten ausgemacht.
 
-Bei \gls{bleLabel} erfolgt eine Verschlüsselung via \gls{aesccmLabel}, ebenfalls mit 128 Bit.
+Bei \gls{bleLabel} erfolgt die Verschlüsselung via \gls{aesccmLabel}, ebenfalls mit 128 Bit.
 
 \subsection{Error Correction}
 Die Daten werden entweder beim klassischen Bluetooth mit \gls{fecLabel}\footcite{Forward_error_correction_Wikipedia_2015-04-27} oder bei bei \gls{bleLabel} mit \gls{crcLabel}\footcite{Cyclic_redundancy_check_Wikipedia_2015-04-27} auf Übermittlungsfehler überprüft.
